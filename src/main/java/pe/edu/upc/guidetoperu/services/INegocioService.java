@@ -1,6 +1,6 @@
-package pe.edu.upc.negocio.services;
+package pe.edu.upc.guidetoperu.services;
 
-import pe.edu.upc.negocio.entities.Negocio;
+import pe.edu.upc.guidetoperu.entities.Negocio;
 
 import java.util.List;
 

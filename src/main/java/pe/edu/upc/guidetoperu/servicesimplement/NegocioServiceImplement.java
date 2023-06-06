@@ -1,10 +1,10 @@
-package pe.edu.upc.negocio.servicesimplement;
+package pe.edu.upc.guidetoperu.servicesimplement;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.edu.upc.negocio.entities.Negocio;
-import pe.edu.upc.negocio.repositories.INegocioRepository;
-import pe.edu.upc.negocio.services.INegocioService;
+import pe.edu.upc.guidetoperu.entities.Negocio;
+import pe.edu.upc.guidetoperu.repositories.INegocioRepository;
+import pe.edu.upc.guidetoperu.services.INegocioService;
 
 import java.util.List;
 

@@ -1,11 +1,11 @@
-package pe.edu.upc.negocio.controllers;
+package pe.edu.upc.guidetoperu.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.negocio.dtos.NegocioDTO;
-import pe.edu.upc.negocio.entities.Negocio;
-import pe.edu.upc.negocio.services.INegocioService;
+import pe.edu.upc.guidetoperu.dtos.NegocioDTO;
+import pe.edu.upc.guidetoperu.entities.Negocio;
+import pe.edu.upc.guidetoperu.services.INegocioService;
 
 import java.util.List;
 import java.util.stream.Collectors;

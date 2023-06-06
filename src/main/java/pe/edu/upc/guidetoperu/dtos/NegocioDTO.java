@@ -1,4 +1,4 @@
-package pe.edu.upc.negocio.dtos;
+package pe.edu.upc.guidetoperu.dtos;
 
 public class NegocioDTO {
     private int idNegocio;

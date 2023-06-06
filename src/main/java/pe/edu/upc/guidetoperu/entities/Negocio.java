@@ -1,4 +1,4 @@
-package pe.edu.upc.negocio.entities;
+package pe.edu.upc.guidetoperu.entities;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
