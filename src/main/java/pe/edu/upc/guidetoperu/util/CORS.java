@@ -1,4 +1,4 @@
-package pe.edu.upc.guidetoperuapi.util;
+package pe.edu.upc.guidetoperu.util;
 
 
 import java.io.IOException;

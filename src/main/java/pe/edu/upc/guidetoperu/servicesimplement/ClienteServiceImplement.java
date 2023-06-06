@@ -1,10 +1,10 @@
-package pe.edu.upc.guidetoperuapi.servicesimplement;
+package pe.edu.upc.guidetoperu.servicesimplement;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.edu.upc.guidetoperuapi.entities.Cliente;
-import pe.edu.upc.guidetoperuapi.repositories.IClienteRepository;
-import pe.edu.upc.guidetoperuapi.services.IClienteService;
+import pe.edu.upc.guidetoperu.entities.Cliente;
+import pe.edu.upc.guidetoperu.repositories.IClienteRepository;
+import pe.edu.upc.guidetoperu.services.IClienteService;
 
 import java.util.List;
 

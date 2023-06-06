@@ -1,5 +1,5 @@
-package pe.edu.upc.guidetoperuapi.services;
-import pe.edu.upc.guidetoperuapi.entities.Cliente;
+package pe.edu.upc.guidetoperu.services;
+import pe.edu.upc.guidetoperu.entities.Cliente;
 import java.util.List;
 public interface IClienteService {
 

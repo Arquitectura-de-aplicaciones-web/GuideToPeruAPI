@@ -1,38 +1,15 @@
-package pe.edu.upc.guidetoperuapi.entities;
-
-import javax.persistence.*;
+package pe.edu.upc.guidetoperu.dtos;
 import java.time.LocalDate;
-@Entity
-@Table(name = "clientes")
-public class Cliente {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+public class ClienteDTO {
+
     private int idCliente;
-    @Column(name = "nameCliente",length = 20,nullable=false)
     private String nameCliente;
-    @Column(name = "apellidoCliente",length = 20,nullable=false)
     private String apellidoCliente;
-    @Column(name = "anioNacimiento")
     private LocalDate anioNacimiento;
-    @Column(name = "cuentaBancaria",length = 20,nullable=false)
     private int cuentaBancaria;
-    @Column(name = "direccion",length = 20,nullable=true)
     private String direccion;
-    @Column(name = "IDUsuario",length = 20,nullable=false)
     private int IDUsuario;
-
-    public Cliente() {
-    }
-
-    public Cliente(int idCliente, String nameCliente, String apellidoCliente, LocalDate anioNacimiento, int cuentaBancaria, String direccion, int IDUsuario) {
-        this.idCliente = idCliente;
-        this.nameCliente = nameCliente;
-        this.apellidoCliente = apellidoCliente;
-        this.anioNacimiento = anioNacimiento;
-        this.cuentaBancaria = cuentaBancaria;
-        this.direccion = direccion;
-        this.IDUsuario = IDUsuario;
-    }
 
     public int getIdCliente() {
         return idCliente;

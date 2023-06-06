@@ -1,12 +1,12 @@
-package pe.edu.upc.guidetoperuapi.controllers;
+package pe.edu.upc.guidetoperu.controllers;
 
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.guidetoperuapi.dtos.ClienteDTO;
-import pe.edu.upc.guidetoperuapi.entities.Cliente;
-import pe.edu.upc.guidetoperuapi.services.IClienteService;
+import pe.edu.upc.guidetoperu.dtos.ClienteDTO;
+import pe.edu.upc.guidetoperu.entities.Cliente;
+import pe.edu.upc.guidetoperu.services.IClienteService;
 
 import java.util.List;
 import java.util.stream.Collectors;
