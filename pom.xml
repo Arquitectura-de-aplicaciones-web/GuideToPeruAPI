@@ -9,11 +9,11 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>pe.edu.upc</groupId>
-    <artifactId>GuideToPeruAPI</artifactId>
+    <artifactId>Negocio</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>GuideToPeruAPI</name>
-    <description>GuideToPeruAPI</description>
+    <name>Negocio</name>
+    <description>Negocio</description>
     <properties>
         <java.version>17</java.version>
     </properties>
