@@ -14,7 +14,7 @@ public class UsuarioServiceRepository implements IUsuarioService {
     public IUsuarioRepository uR;
 
     @Override
-    public void insert(Usuario user) { uR.save(user); }
+    public void insert(Usuario usuario) { uR.save(usuario); }
 
     @Override
     public List<Usuario> list() { return uR.findAll(); }
