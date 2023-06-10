@@ -14,9 +14,7 @@ public class NegocioServiceImplement implements INegocioService {
     @Autowired
     private INegocioRepository aR;
     @Override
-    public void insert(Negocio negocio) {aR.save(negocio);
-
-    }
+    public void insert(Negocio negocio) {aR.save(negocio);}
 
     @Override
     public List<Negocio> list() {

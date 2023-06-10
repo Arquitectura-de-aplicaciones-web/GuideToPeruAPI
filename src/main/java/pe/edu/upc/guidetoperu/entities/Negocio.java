@@ -13,27 +13,27 @@ public class Negocio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idNegocio;
-    @Column(name = "nameBusiness", length = 60, nullable = false)
+    @Column(name = "nameNegocio", length = 60, nullable = false)
     private String nameNegocio;
-    @Column(name = "addressNegocio", length = 40, nullable = false)
-    private String addressNegocio;
-    @Column(name = "phoneNegocio", length = 40, nullable = false)
-    private String phoneNegocio;
-    @Column(name = "emailNegocio", length = 40, nullable = false)
-    private String emailNegocio;
-    @Column(name = "guyNegocio", length = 40, nullable = false)
-    private String guyNegocio;
+    @Column(name = "direccionNegocio", length = 40, nullable = false)
+    private String direccionNegocio;
+    @Column(name = "tipoNegocio", length = 40, nullable = false)
+    private int tipoNegocio;
+    @Column (name = "IDUsuario", length = 40, nullable = false)
+    private int IDUsuario;
+    @Column (name = "calificacion", length = 40, nullable = false)
+    private int calificacion;
 
     public Negocio() {
     }
 
-    public Negocio(int idNegocio, String nameNegocio, String addressNegocio, String phoneNegocio, String emailNegocio, String guyNegocio) {
+    public Negocio(int idNegocio, String nameNegocio, String direccionNegocio, int tipoNegocio, int IDUsuario, int calificacion) {
         this.idNegocio = idNegocio;
         this.nameNegocio = nameNegocio;
-        this.addressNegocio = addressNegocio;
-        this.phoneNegocio = phoneNegocio;
-        this.emailNegocio = emailNegocio;
-        this.guyNegocio = guyNegocio;
+        this.direccionNegocio = direccionNegocio;
+        this.tipoNegocio = tipoNegocio;
+        this.IDUsuario = IDUsuario;
+        this.calificacion = calificacion;
     }
 
     public int getIdNegocio() {
@@ -52,36 +52,35 @@ public class Negocio {
         this.nameNegocio = nameNegocio;
     }
 
-    public String getAddressNegocio() {
-        return addressNegocio;
+    public String getDireccionNegocio() {
+        return direccionNegocio;
     }
 
-    public void setAddressNegocio(String addressNegocio) {
-        this.addressNegocio = addressNegocio;
+    public void setDireccionNegocio(String direccionNegocio) {
+        this.direccionNegocio = direccionNegocio;
     }
 
-    public String getPhoneNegocio() {
-        return phoneNegocio;
+    public int getTipoNegocio() {
+        return tipoNegocio;
     }
 
-    public void setPhoneNegocio(String phoneNegocio) {
-        this.phoneNegocio = phoneNegocio;
+    public void setTipoNegocio(int tipoNegocio) {
+        this.tipoNegocio = tipoNegocio;
     }
 
-    public String getEmailNegocio() {
-        return emailNegocio;
+    public int getIDUsuario() {
+        return IDUsuario;
     }
 
-    public void setEmailNegocio(String emailNegocio) {
-        this.emailNegocio = emailNegocio;
+    public void setIDUSsuario(int IDusuario) {
+        this.IDUsuario = IDusuario;
     }
 
-    public String getGuyNegocio() {
-        return guyNegocio;
+    public int getCalificacion() {
+        return calificacion;
     }
 
-    public void setGuyNegocio(String guyNegocio) {
-        this.guyNegocio = guyNegocio;
+    public void setCalificacion(int calificacion) {
+        this.calificacion = calificacion;
     }
-
 }

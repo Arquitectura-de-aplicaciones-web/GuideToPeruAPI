@@ -1,12 +1,15 @@
 package pe.edu.upc.guidetoperu.dtos;
 
+import javax.persistence.Column;
+
 public class NegocioDTO {
     private int idNegocio;
     private String nameNegocio;
-    private String addressNegocio;
-    private String phoneNegocio;
-    private String emailNegocio;
-    private String guyNegocio;
+    private String direccionNegocio;
+    private int tipoNegocio;
+    private int IDUsuario;
+    private int calificacion;
+
 
     public int getIdNegocio() {
         return idNegocio;
@@ -24,36 +27,35 @@ public class NegocioDTO {
         this.nameNegocio = nameNegocio;
     }
 
-    public String getAddressNegocio() {
-        return addressNegocio;
+    public String getDireccionNegocio() {
+        return direccionNegocio;
     }
 
-    public void setAddressNegocio(String addressNegocio) {
-        this.addressNegocio = addressNegocio;
+    public void setDireccionNegocio(String direccionNegocio) {
+        this.direccionNegocio = direccionNegocio;
     }
 
-    public String getPhoneNegocio() {
-        return phoneNegocio;
+    public int getTipoNegocio() {
+        return tipoNegocio;
     }
 
-    public void setPhoneNegocio(String phoneNegocio) {
-        this.phoneNegocio = phoneNegocio;
+    public void setTipoNegocio(int tipoNegocio) {
+        this.tipoNegocio = tipoNegocio;
     }
 
-    public String getEmailNegocio() {
-        return emailNegocio;
+    public int getIDUsuario() {
+        return IDUsuario;
     }
 
-    public void setEmailNegocio(String emailNegocio) {
-        this.emailNegocio = emailNegocio;
+    public void setIDUsuario(int IDusuario) {
+        this.IDUsuario = IDusuario;
     }
 
-    public String getGuyNegocio() {
-        return guyNegocio;
+    public int getCalificacion() {
+        return calificacion;
     }
 
-    public void setGuyNegocio(String guyNegocio) {
-        this.guyNegocio = guyNegocio;
+    public void setCalificacion(int calificacion) {
+        this.calificacion = calificacion;
     }
-
 }
