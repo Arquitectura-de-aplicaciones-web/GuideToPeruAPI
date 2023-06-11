@@ -7,12 +7,12 @@ import javax.persistence.GenerationType;
 public class DestinosDTO {
 
     private int idDestinos;
-    private String nameDestinos;
-    private String ubicacionDestinos;
-    private String descripcionDestinos;
-    private String imagenDestinos;
-    private String distritoDestinos;
-    private String departarmentoDestinos;
+    private String nombre;
+    private String ubicacion;
+    private String descripcion;
+    private String imagen;
+    private String distrito;
+    private String departarmento;
 
     public int getIdDestinos() {
         return idDestinos;
@@ -22,55 +22,51 @@ public class DestinosDTO {
         this.idDestinos = idDestinos;
     }
 
-    public String getNameDestinos() {
-        return nameDestinos;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNameDestinos(String nameDestinos) {
-        this.nameDestinos = nameDestinos;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getUbicacionDestinos() {
-        return ubicacionDestinos;
+    public String getUbicacion() {
+        return ubicacion;
     }
 
-    public void setUbicacionDestinos(String ubicacionDestinos) {
-        this.ubicacionDestinos = ubicacionDestinos;
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
     }
 
-    public String getDescripcionDestinos() {
-        return descripcionDestinos;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setDescripcionDestinos(String descripcionDestinos) {
-        this.descripcionDestinos = descripcionDestinos;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public String getImagenDestinos() {
-        return imagenDestinos;
+    public String getImagen() {
+        return imagen;
     }
 
-    public void setImagenDestinos(String imagenDestinos) {
-        this.imagenDestinos = imagenDestinos;
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
-    public String getDistritoDestinos() {
-        return distritoDestinos;
+    public String getDistrito() {
+        return distrito;
     }
 
-    public void setDistritoDestinos(String distritoDestinos) {
-        this.distritoDestinos = distritoDestinos;
+    public void setDistrito(String distrito) {
+        this.distrito = distrito;
     }
 
-    public String getDepartarmentoDestinos() {
-        return departarmentoDestinos;
+    public String getDepartarmento() {
+        return departarmento;
     }
 
-    public void setDepartarmentoDestinos(String departarmentoDestinos) {
-        this.departarmentoDestinos = departarmentoDestinos;
+    public void setDepartarmento(String departarmento) {
+        this.departarmento = departarmento;
     }
-
-
-
-
 }

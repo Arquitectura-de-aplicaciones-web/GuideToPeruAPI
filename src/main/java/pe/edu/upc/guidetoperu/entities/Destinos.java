@@ -8,33 +8,31 @@ public class  Destinos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
      private int idDestinos;
-    @Column(name = "nameDestinos", length = 60, nullable = false)
-     private String nameDestinos;
-    @Column(name = "ubicacionDestinos", length = 60, nullable = false)
-     private String ubicacionDestinos;
-    @Column(name = "descripcionDestinos", length = 60, nullable = false)
-    private String descripcionDestinos;
-    @Column(name = "imagenDestinos", length = 60, nullable = false)
-    private String imagenDestinos;
-    @Column(name = "distritoDestinos", length = 60, nullable = false)
-    private String distritoDestinos;
-    @Column(name = "departarmentoDestinos", length = 60, nullable = false)
-    private String departarmentoDestinos;
+    @Column(name = "nombre", length = 60, nullable = false)
+     private String nombre;
+    @Column(name = "ubicacion", length = 60, nullable = false)
+     private String ubicacion;
+    @Column(name = "descripcion", length = 60, nullable = false)
+    private String descripcion;
+    @Column(name = "imagen", length = 60, nullable = false)
+    private String imagen;
+    @Column(name = "distrito", length = 60, nullable = false)
+    private String distrito;
+    @Column(name = "departarmento", length = 60, nullable = false)
+    private String departarmento;
 
 
     public Destinos() {
     }
 
-    public Destinos(int idDestinos, String nameDestinos, String ubicacionDestinos,
-                    String descripcionDestinos, String imagenDestinos, String distritoDestinos,
-                    String departarmentoDestinos) {
+    public Destinos(int idDestinos, String nombre, String ubicacion, String descripcion, String imagen, String distrito, String departarmento) {
         this.idDestinos = idDestinos;
-        this.nameDestinos = nameDestinos;
-        this.ubicacionDestinos = ubicacionDestinos;
-        this.descripcionDestinos = descripcionDestinos;
-        this.imagenDestinos = imagenDestinos;
-        this.distritoDestinos = distritoDestinos;
-        this.departarmentoDestinos = departarmentoDestinos;
+        this.nombre = nombre;
+        this.ubicacion = ubicacion;
+        this.descripcion = descripcion;
+        this.imagen = imagen;
+        this.distrito = distrito;
+        this.departarmento = departarmento;
     }
 
     public int getIdDestinos() {
@@ -45,51 +43,51 @@ public class  Destinos {
         this.idDestinos = idDestinos;
     }
 
-    public String getNameDestinos() {
-        return nameDestinos;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNameDestinos(String nameDestinos) {
-        this.nameDestinos = nameDestinos;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getUbicacionDestinos() {
-        return ubicacionDestinos;
+    public String getUbicacion() {
+        return ubicacion;
     }
 
-    public void setUbicacionDestinos(String ubicacionDestinos) {
-        this.ubicacionDestinos = ubicacionDestinos;
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
     }
 
-    public String getDescripcionDestinos() {
-        return descripcionDestinos;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setDescripcionDestinos(String descripcionDestinos) {
-        this.descripcionDestinos = descripcionDestinos;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public String getImagenDestinos() {
-        return imagenDestinos;
+    public String getImagen() {
+        return imagen;
     }
 
-    public void setImagenDestinos(String imagenDestinos) {
-        this.imagenDestinos = imagenDestinos;
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
-    public String getDistritoDestinos() {
-        return distritoDestinos;
+    public String getDistrito() {
+        return distrito;
     }
 
-    public void setDistritoDestinos(String distritoDestinos) {
-        this.distritoDestinos = distritoDestinos;
+    public void setDistrito(String distrito) {
+        this.distrito = distrito;
     }
 
-    public String getDepartarmentoDestinos() {
-        return departarmentoDestinos;
+    public String getDepartarmento() {
+        return departarmento;
     }
 
-    public void setDepartarmentoDestinos(String departarmentoDestinos) {
-        this.departarmentoDestinos = departarmentoDestinos;
+    public void setDepartarmento(String departarmento) {
+        this.departarmento = departarmento;
     }
 }
