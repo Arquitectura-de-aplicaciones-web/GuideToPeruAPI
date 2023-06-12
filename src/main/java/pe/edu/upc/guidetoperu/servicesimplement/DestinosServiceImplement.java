@@ -19,13 +19,13 @@ public class DestinosServiceImplement implements IDestinosService {
     }
 
     @Override
-    public void eliminar(int idDestinos) {
-        irD.deleteById(idDestinos);
+    public void eliminar(int id) {
+        irD.deleteById(id);
     }
 
     @Override
-    public Destinos listarId(int idDestinos) {
-        return irD.findById(idDestinos).orElse(new Destinos());
+    public Destinos listarId(int id) {
+        return irD.findById(id).orElse(new Destinos());
     }
 
     @Override

@@ -12,36 +12,36 @@ import javax.persistence.Column;
 public class Negocio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idNegocio;
+    private int id;
     @Column(name = "nameNegocio", length = 60, nullable = false)
     private String nameNegocio;
     @Column(name = "direccionNegocio", length = 40, nullable = false)
     private String direccionNegocio;
     @Column(name = "tipoNegocio", length = 40, nullable = false)
     private int tipoNegocio;
-    @Column (name = "IDUsuario", length = 40, nullable = false)
-    private int IDUsuario;
+    @Column (name = "IDusuario", length = 40, nullable = false)
+    private int IDusuario;
     @Column (name = "calificacion", length = 40, nullable = false)
     private int calificacion;
 
     public Negocio() {
     }
 
-    public Negocio(int idNegocio, String nameNegocio, String direccionNegocio, int tipoNegocio, int IDUsuario, int calificacion) {
-        this.idNegocio = idNegocio;
+    public Negocio(int id, String nameNegocio, String direccionNegocio, int tipoNegocio, int IDusuario, int calificacion) {
+        this.id = id;
         this.nameNegocio = nameNegocio;
         this.direccionNegocio = direccionNegocio;
         this.tipoNegocio = tipoNegocio;
-        this.IDUsuario = IDUsuario;
+        this.IDusuario = IDusuario;
         this.calificacion = calificacion;
     }
 
-    public int getIdNegocio() {
-        return idNegocio;
+    public int getId() {
+        return id;
     }
 
-    public void setIdNegocio(int idNegocio) {
-        this.idNegocio = idNegocio;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNameNegocio() {
@@ -68,12 +68,12 @@ public class Negocio {
         this.tipoNegocio = tipoNegocio;
     }
 
-    public int getIDUsuario() {
-        return IDUsuario;
+    public int getIDusuario() {
+        return IDusuario;
     }
 
-    public void setIDUSsuario(int IDusuario) {
-        this.IDUsuario = IDusuario;
+    public void setIDusuario(int IDusuario) {
+        this.IDusuario = IDusuario;
     }
 
     public int getCalificacion() {

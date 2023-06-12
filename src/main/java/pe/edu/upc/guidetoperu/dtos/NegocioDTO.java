@@ -3,20 +3,20 @@ package pe.edu.upc.guidetoperu.dtos;
 import javax.persistence.Column;
 
 public class NegocioDTO {
-    private int idNegocio;
+    private int id;
     private String nameNegocio;
     private String direccionNegocio;
     private int tipoNegocio;
-    private int IDUsuario;
+    private int IDusuario;
     private int calificacion;
 
 
-    public int getIdNegocio() {
-        return idNegocio;
+    public int getId() {
+        return id;
     }
 
-    public void setIdNegocio(int idNegocio) {
-        this.idNegocio = idNegocio;
+    public void setIdNegocio(int id) {
+        this.id = id;
     }
 
     public String getNameNegocio() {
@@ -43,12 +43,12 @@ public class NegocioDTO {
         this.tipoNegocio = tipoNegocio;
     }
 
-    public int getIDUsuario() {
-        return IDUsuario;
+    public int getIDusuario() {
+        return IDusuario;
     }
 
-    public void setIDUsuario(int IDusuario) {
-        this.IDUsuario = IDusuario;
+    public void setIDusuario(int IDusuario) {
+        this.IDusuario = IDusuario;
     }
 
     public int getCalificacion() {

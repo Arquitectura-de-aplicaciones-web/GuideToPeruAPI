@@ -10,9 +10,9 @@ public interface IUsuarioService {
 
     public List<Usuario> list();
 
-    public void delete(int idUser);
+    public void delete(int id);
 
-    public Usuario listID(int idUser);
+    public Usuario listID(int id);
     public List<Usuario> searchEmail(String email_to_search);
 
 }

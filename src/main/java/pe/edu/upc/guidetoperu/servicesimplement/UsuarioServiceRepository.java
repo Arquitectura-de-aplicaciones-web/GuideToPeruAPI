@@ -20,10 +20,10 @@ public class UsuarioServiceRepository implements IUsuarioService {
     public List<Usuario> list() { return uR.findAll(); }
 
     @Override
-    public void delete(int idUser) { uR.deleteById(idUser); }
+    public void delete(int id) { uR.deleteById(id); }
 
     @Override
-    public Usuario listID(int idUser) { return uR.findById(idUser).orElse(new Usuario()); }
+    public Usuario listID(int id) { return uR.findById(id).orElse(new Usuario()); }
 
     @Override
     public List<Usuario> searchEmail(String email_to_search) {

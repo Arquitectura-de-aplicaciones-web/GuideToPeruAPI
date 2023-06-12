@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class  Destinos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-     private int idDestinos;
+     private int id;
     @Column(name = "nombre", length = 60, nullable = false)
      private String nombre;
     @Column(name = "ubicacion", length = 60, nullable = false)
@@ -25,8 +25,8 @@ public class  Destinos {
     public Destinos() {
     }
 
-    public Destinos(int idDestinos, String nombre, String ubicacion, String descripcion, String imagen, String distrito, String departarmento) {
-        this.idDestinos = idDestinos;
+    public Destinos(int id, String nombre, String ubicacion, String descripcion, String imagen, String distrito, String departarmento) {
+        this.id = id;
         this.nombre = nombre;
         this.ubicacion = ubicacion;
         this.descripcion = descripcion;
@@ -35,12 +35,12 @@ public class  Destinos {
         this.departarmento = departarmento;
     }
 
-    public int getIdDestinos() {
-        return idDestinos;
+    public int getId() {
+        return id;
     }
 
-    public void setIdDestinos(int idDestinos) {
-        this.idDestinos = idDestinos;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {

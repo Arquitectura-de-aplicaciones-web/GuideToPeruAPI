@@ -22,13 +22,13 @@ public class NegocioServiceImplement implements INegocioService {
     }
 
     @Override
-    public void delete(int idNegocio) {
-        aR.deleteById(idNegocio);
+    public void delete(int id) {
+        aR.deleteById(id);
 
     }
 
     @Override
-    public Negocio listId(int idNegocio) {
-        return aR.findById(idNegocio).orElse(new Negocio());
+    public Negocio listId(int id) {
+        return aR.findById(id).orElse(new Negocio());
     }
 }

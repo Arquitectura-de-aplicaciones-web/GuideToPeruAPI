@@ -8,9 +8,9 @@ public interface IDestinosService {
 
     public void insertar(Destinos destinos);
 
-    public void eliminar(int idDestinos);
+    public void eliminar(int id);
 
-    public Destinos listarId(int idDestinos);
+    public Destinos listarId(int id);
 
     List<Destinos> listar();
 

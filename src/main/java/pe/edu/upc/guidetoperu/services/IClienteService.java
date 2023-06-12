@@ -5,7 +5,7 @@ public interface IClienteService {
 
     public void insert(Cliente cliente);
     List<Cliente> list();
-    public void delete(int idCliente);
-    public Cliente listID (int idCliente);
+    public void delete(int id);
+    public Cliente listID (int id);
 
 }

@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 
 public class DestinosDTO {
 
-    private int idDestinos;
+    private int id;
     private String nombre;
     private String ubicacion;
     private String descripcion;
@@ -14,12 +14,12 @@ public class DestinosDTO {
     private String distrito;
     private String departarmento;
 
-    public int getIdDestinos() {
-        return idDestinos;
+    public int getId() {
+        return id;
     }
 
-    public void setIdDestinos(int idDestinos) {
-        this.idDestinos = idDestinos;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {

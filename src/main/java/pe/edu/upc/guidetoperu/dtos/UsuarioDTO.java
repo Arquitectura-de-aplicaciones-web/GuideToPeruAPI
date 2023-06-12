@@ -1,17 +1,17 @@
 package pe.edu.upc.guidetoperu.dtos;
 
 public class UsuarioDTO {
-    private int idUser;
+    private int id;
     private String telefono;
     private String email;
     private String contrasenia;
 
-    public int getIdUser() {
-        return idUser;
+    public int getId() {
+        return id;
     }
 
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTelefono() {

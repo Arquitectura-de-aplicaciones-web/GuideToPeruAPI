@@ -7,7 +7,7 @@ import java.time.LocalDate;
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idCliente;
+    private int id;
     @Column(name = "nameCliente",length = 20,nullable=false)
     private String nameCliente;
     @Column(name = "apellidoCliente",length = 20,nullable=false)
@@ -24,8 +24,8 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(int idCliente, String nameCliente, String apellidoCliente, LocalDate anioNacimiento, int cuentaBancaria, String direccion, int IDUsuario) {
-        this.idCliente = idCliente;
+    public Cliente(int id, String nameCliente, String apellidoCliente, LocalDate anioNacimiento, int cuentaBancaria, String direccion, int IDUsuario) {
+        this.id = id;
         this.nameCliente = nameCliente;
         this.apellidoCliente = apellidoCliente;
         this.anioNacimiento = anioNacimiento;
@@ -34,12 +34,12 @@ public class Cliente {
         this.IDUsuario = IDUsuario;
     }
 
-    public int getIdCliente() {
-        return idCliente;
+    public int getId() {
+        return id;
     }
 
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNameCliente() {

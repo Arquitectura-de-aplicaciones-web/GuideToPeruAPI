@@ -3,7 +3,7 @@ import java.time.LocalDate;
 
 public class ClienteDTO {
 
-    private int idCliente;
+    private int id;
     private String nameCliente;
     private String apellidoCliente;
     private LocalDate anioNacimiento;
@@ -11,12 +11,12 @@ public class ClienteDTO {
     private String direccion;
     private int IDUsuario;
 
-    public int getIdCliente() {
-        return idCliente;
+    public int getId() {
+        return id;
     }
 
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNameCliente() {

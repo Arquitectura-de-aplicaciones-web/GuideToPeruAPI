@@ -10,7 +10,7 @@ public interface INegocioService {
     List<Negocio> list();
 
 
-    public void delete(int idNegocio);
+    public void delete(int id);
 
-    public Negocio listId(int idNegocio);
+    public Negocio listId(int id);
 }

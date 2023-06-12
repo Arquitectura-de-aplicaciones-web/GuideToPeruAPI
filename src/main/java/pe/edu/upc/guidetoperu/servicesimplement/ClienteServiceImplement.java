@@ -19,13 +19,13 @@ public class ClienteServiceImplement implements IClienteService {
     public List<Cliente> list(){return cR.findAll();}
 
     @Override
-    public void delete(int idCliente){
-        cR.deleteById(idCliente);
+    public void delete(int id){
+        cR.deleteById(id);
     }
 
     @Override
-    public Cliente listID (int idCliente){
-        return cR.findById(idCliente).orElse(new Cliente());
+    public Cliente listID (int id){
+        return cR.findById(id).orElse(new Cliente());
     }
 
 
