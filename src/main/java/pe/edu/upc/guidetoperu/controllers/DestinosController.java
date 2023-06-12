@@ -2,6 +2,7 @@ package pe.edu.upc.guidetoperu.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.guidetoperu.dtos.DestinosDTO;
 import pe.edu.upc.guidetoperu.entities.Destinos;
@@ -43,6 +44,7 @@ public class DestinosController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<DestinosDTO> listar() {
         return aS.listar().stream().map(x->{
             ModelMapper m=new ModelMapper();

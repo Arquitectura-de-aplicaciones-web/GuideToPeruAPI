@@ -13,4 +13,9 @@ public interface IUsuarioRepository extends JpaRepository<Usuario, Integer> {
     @Query("FROM Usuario u WHERE u.email = :email")
     List<Usuario> searchEmail(@Param("email") String email);
 
+    public Usuario findByUsername(String username);
+    @Query("select count(u.email) from Usuario u where u.email =:email")
+    public int buscarEmail(@Param("email") String email);
+
+
 }

@@ -3,6 +3,7 @@ package pe.edu.upc.guidetoperu.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.guidetoperu.dtos.ClienteDTO;
 import pe.edu.upc.guidetoperu.entities.Cliente;
@@ -25,10 +26,12 @@ public class ClienteController {
     }
 
     @GetMapping
-    public List<ClienteDTO> list(){
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public List<ClienteDTO> list() {
         return cS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
-        return m.map(x,ClienteDTO.class);
+            return m.map(x,ClienteDTO.class);
+
         }).collect(Collectors.toList());
     }
 
@@ -50,5 +53,6 @@ public class ClienteController {
         Cliente c=m.map(dto,Cliente.class);
         cS.insert(c);
     }
+
 
 }

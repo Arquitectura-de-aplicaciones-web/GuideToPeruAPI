@@ -2,6 +2,7 @@ package pe.edu.upc.guidetoperu.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.guidetoperu.dtos.NegocioDTO;
 import pe.edu.upc.guidetoperu.entities.Negocio;
@@ -23,10 +24,12 @@ public class NegocioController {
 
     }
     @GetMapping
-    public List<NegocioDTO> list(){
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public List<NegocioDTO> list() {
         return aS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
             return m.map(x,NegocioDTO.class);
+
         }).collect(Collectors.toList());
     }
     @DeleteMapping("/{id}")
