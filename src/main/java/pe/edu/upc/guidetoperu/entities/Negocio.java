@@ -1,11 +1,6 @@
 package pe.edu.upc.guidetoperu.entities;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.Entity;
-import javax.persistence.GenerationType;
-import javax.persistence.Column;
+import javax.persistence.*;
 
 @Entity
 @Table(name="negocios")
@@ -17,17 +12,21 @@ public class Negocio {
     private String nameNegocio;
     @Column(name = "direccionNegocio", length = 40, nullable = false)
     private String direccionNegocio;
-    @Column(name = "tipoNegocio", length = 40, nullable = false)
-    private int tipoNegocio;
-    @Column (name = "IDusuario", length = 40, nullable = false)
-    private int IDusuario;
+
+    @ManyToOne
+    @JoinColumn(name = "tipoNegocio")
+    private TipoNegocio tipoNegocio;
+
+    @OneToOne
+    @JoinColumn(name = "IDusuario")
+    private Usuario IDusuario;
     @Column (name = "calificacion", length = 40, nullable = false)
     private int calificacion;
 
     public Negocio() {
     }
 
-    public Negocio(int id, String nameNegocio, String direccionNegocio, int tipoNegocio, int IDusuario, int calificacion) {
+    public Negocio(int id, String nameNegocio, String direccionNegocio, TipoNegocio tipoNegocio, Usuario IDusuario, int calificacion) {
         this.id = id;
         this.nameNegocio = nameNegocio;
         this.direccionNegocio = direccionNegocio;
@@ -60,19 +59,19 @@ public class Negocio {
         this.direccionNegocio = direccionNegocio;
     }
 
-    public int getTipoNegocio() {
+    public TipoNegocio getTipoNegocio() {
         return tipoNegocio;
     }
 
-    public void setTipoNegocio(int tipoNegocio) {
+    public void setTipoNegocio(TipoNegocio tipoNegocio) {
         this.tipoNegocio = tipoNegocio;
     }
 
-    public int getIDusuario() {
+    public Usuario getIDusuario() {
         return IDusuario;
     }
 
-    public void setIDusuario(int IDusuario) {
+    public void setIDusuario(Usuario IDusuario) {
         this.IDusuario = IDusuario;
     }
 

@@ -18,13 +18,14 @@ public class Cliente {
     private int cuentaBancaria;
     @Column(name = "direccion",length = 20,nullable=true)
     private String direccion;
-    @Column(name = "IDUsuario",length = 20,nullable=false)
-    private int IDUsuario;
+    @OneToOne
+    @JoinColumn(name = "IDUsuario")
+    private Usuario IDUsuario;
 
     public Cliente() {
     }
 
-    public Cliente(int id, String nameCliente, String apellidoCliente, LocalDate anioNacimiento, int cuentaBancaria, String direccion, int IDUsuario) {
+    public Cliente(int id, String nameCliente, String apellidoCliente, LocalDate anioNacimiento, int cuentaBancaria, String direccion, Usuario IDUsuario) {
         this.id = id;
         this.nameCliente = nameCliente;
         this.apellidoCliente = apellidoCliente;
@@ -82,11 +83,11 @@ public class Cliente {
         this.direccion = direccion;
     }
 
-    public int getIDUsuario() {
+    public Usuario getIDUsuario() {
         return IDUsuario;
     }
 
-    public void setIDUsuario(int IDUsuario) {
+    public void setIDUsuario(Usuario IDUsuario) {
         this.IDUsuario = IDUsuario;
     }
 }
