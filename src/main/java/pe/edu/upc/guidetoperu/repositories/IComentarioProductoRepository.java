@@ -12,15 +12,15 @@ import java.util.List;
 
 @Repository
 public interface IComentarioProductoRepository extends JpaRepository<ComentarioProducto, Integer> {
-    @Query("FROM ComentarioProducto cp WHERE cp.cliente.idCliente = :idCliente")
+    @Query("FROM ComentarioProducto cp WHERE cp.cliente.id = :idCliente")
     List<ComentarioProducto> listByCliente(@Param("idCliente") int idCliente);
     @Query("FROM ComentarioProducto cp WHERE cp.producto.idProducto = :idProducto")
     List<ComentarioProducto> listByProducto(@Param("idProducto") int idProducto);
-    @Query("FROM ComentarioProducto cp WHERE cp.cliente.idCliente = :idCliente AND cp.producto.idProducto = :idProducto")
+    @Query("FROM ComentarioProducto cp WHERE cp.cliente.id = :idCliente AND cp.producto.idProducto = :idProducto")
     List<ComentarioProducto> listByClienteProducto(@Param("idCliente") int idCliente, @Param("idProducto") int idProducto);
     @Transactional
     @Modifying
-    @Query("DELETE FROM ComentarioProducto cp WHERE cp.cliente.idCliente = :idCliente")
+    @Query("DELETE FROM ComentarioProducto cp WHERE cp.cliente.id = :idCliente")
     void deleteByCliente(@Param("idCliente") int idCliente);
     @Transactional
     @Modifying
@@ -28,6 +28,6 @@ public interface IComentarioProductoRepository extends JpaRepository<ComentarioP
     void deleteByProducto(@Param("idProducto") int idProducto);
     @Transactional
     @Modifying
-    @Query("DELETE FROM ComentarioProducto cp WHERE cp.cliente.idCliente = :idCliente AND cp.producto.idProducto = :idProducto")
+    @Query("DELETE FROM ComentarioProducto cp WHERE cp.cliente.id = :idCliente AND cp.producto.idProducto = :idProducto")
     void deleteByClienteProducto(@Param("idCliente") int idCliente, @Param("idProducto") int idProducto);
 }

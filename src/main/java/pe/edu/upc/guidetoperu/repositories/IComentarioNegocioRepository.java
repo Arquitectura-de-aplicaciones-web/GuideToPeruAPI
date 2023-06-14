@@ -12,22 +12,22 @@ import java.util.List;
 
 @Repository
 public interface IComentarioNegocioRepository extends JpaRepository<ComentarioNegocio, Integer> {
-    @Query("FROM ComentarioNegocio cn WHERE cn.cliente.idCliente = :idCliente")
+    @Query("FROM ComentarioNegocio cn WHERE cn.cliente.id = :idCliente")
     List<ComentarioNegocio> listByCliente(@Param("idCliente") int idCliente);
-    @Query("FROM ComentarioNegocio cn WHERE cn.negocio.idNegocio = :idNegocio")
+    @Query("FROM ComentarioNegocio cn WHERE cn.negocio.id = :idNegocio")
     List<ComentarioNegocio> listByNegocio(@Param("idNegocio") int idNegocio);
-    @Query("FROM ComentarioNegocio cn WHERE cn.cliente.idCliente = :idCliente AND cn.negocio.idNegocio = :idNegocio")
+    @Query("FROM ComentarioNegocio cn WHERE cn.cliente.id = :idCliente AND cn.negocio.id = :idNegocio")
     List<ComentarioNegocio> listByClienteNegocio(@Param("idCliente") int idCliente, @Param("idNegocio") int idNegocio);
     @Transactional
     @Modifying
-    @Query("DELETE FROM ComentarioNegocio cn WHERE cn.cliente.idCliente = :idCliente")
+    @Query("DELETE FROM ComentarioNegocio cn WHERE cn.cliente.id = :idCliente")
     void deleteByCliente(@Param("idCliente") int idCliente);
     @Transactional
     @Modifying
-    @Query("DELETE FROM ComentarioNegocio cn WHERE cn.negocio.idNegocio = :idNegocio")
+    @Query("DELETE FROM ComentarioNegocio cn WHERE cn.negocio.id = :idNegocio")
     void deleteByNegocio(@Param("idNegocio") int idNegocio);
     @Transactional
     @Modifying
-    @Query("DELETE FROM ComentarioNegocio cn WHERE cn.cliente.idCliente = :idCliente AND cn.negocio.idNegocio = :idNegocio")
+    @Query("DELETE FROM ComentarioNegocio cn WHERE cn.cliente.id = :idCliente AND cn.negocio.id = :idNegocio")
     void deleteByClienteNegocio(@Param("idCliente") int idCliente, @Param("idNegocio") int idNegocio);
 }
