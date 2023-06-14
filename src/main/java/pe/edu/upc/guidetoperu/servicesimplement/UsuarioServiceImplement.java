@@ -9,15 +9,9 @@ import pe.edu.upc.guidetoperu.services.IUsuarioService;
 import java.util.List;
 
 @Service
-public class UsuarioServiceRepository implements IUsuarioService {
+public class UsuarioServiceImplement implements IUsuarioService {
     @Autowired
     public IUsuarioRepository uR;
-
-    @Override
-    public void insert(Usuario usuario) { uR.save(usuario); }
-
-    @Override
-    public List<Usuario> list() { return uR.findAll(); }
 
     @Override
     public void delete(int id) { uR.deleteById(id); }
@@ -26,8 +20,18 @@ public class UsuarioServiceRepository implements IUsuarioService {
     public Usuario listID(int id) { return uR.findById(id).orElse(new Usuario()); }
 
     @Override
-    public List<Usuario> searchEmail(String email_to_search) {
-        return uR.searchEmail(email_to_search);
+    public Integer insert(Usuario user) {
+        int rpta = uR.buscarUsername(user.getUsername());
+        if (rpta == 0) {
+            uR.save(user);
+        }
+        return rpta;
+    }
+
+    @Override
+    public List<Usuario> list() {
+        // TODO Auto-generated method stub
+        return uR.findAll();
     }
 
 }

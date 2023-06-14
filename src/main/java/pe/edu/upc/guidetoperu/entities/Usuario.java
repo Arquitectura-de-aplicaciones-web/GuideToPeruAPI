@@ -16,7 +16,7 @@ public class Usuario {
     private String email;
     @Column(name = "contrasenia", length = 20, nullable = false)
     private String contrasenia;
-    @Column (name="Username", length = 20, nullable = false)
+    @Column (name="Username", length = 20, unique = true)
     private String Username;
     private Boolean aux;
 
@@ -31,7 +31,7 @@ public class Usuario {
         this.telefono = telefono;
         this.email = email;
         this.contrasenia = contrasenia;
-        Username = username;
+        this.Username = username;
         this.aux = aux;
         this.roles = roles;
     }

@@ -35,7 +35,7 @@ public class RolController {
     @PostMapping("/save")
     public String saveRol(@Validated Rol rol, BindingResult result, Model model, SessionStatus status) throws Exception {
         if (result.hasErrors()) {
-            return "role/role";
+            return "rol/rol";
         } else {
             rService.insert(rol);
             model.addAttribute("mensaje", "Se guardó correctamente");
