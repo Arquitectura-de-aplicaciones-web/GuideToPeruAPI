@@ -1,6 +1,8 @@
 package pe.edu.upc.guidetoperu.entities;
 
 import javax.persistence.*;
+import java.util.List;
+
 
 @Entity
 @Table(name = "Usuarios")
@@ -14,14 +16,23 @@ public class Usuario {
     private String email;
     @Column(name = "contrasenia", length = 20, nullable = false)
     private String contrasenia;
+    @Column (name="Username", length = 20, nullable = false)
+    private String Username;
+    private Boolean aux;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "usuario_id")
+    private List<Rol> roles;
 
     public Usuario() { }
 
-    public Usuario(int id, String email, String contrasenia, String telefono) {
+    public Usuario(int id, String telefono, String email, String contrasenia, String username, Boolean aux) {
         this.id = id;
+        this.telefono = telefono;
         this.email = email;
         this.contrasenia = contrasenia;
-        this.telefono=telefono;
+        Username = username;
+        this.aux = aux;
     }
 
     public int getId() {
@@ -54,5 +65,21 @@ public class Usuario {
 
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
+    }
+
+    public String getUsername() {
+        return Username;
+    }
+
+    public void setUsername(String username) {
+        Username = username;
+    }
+
+    public Boolean getAux() {
+        return aux;
+    }
+
+    public void setAux(Boolean aux) {
+        this.aux = aux;
     }
 }
