@@ -32,11 +32,11 @@ public class JwtUserDetailsService implements UserDetailsService {
         }
     }*/
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Usuario user = repo.findByUsername(username);
+    public UserDetails loadUserByUsername(String Username) throws UsernameNotFoundException {
+        Usuario user = repo.findByUsername(Username);
 
         if(user == null) {
-            throw new UsernameNotFoundException(String.format("Usuario no existente", username));
+            throw new UsernameNotFoundException(String.format("Usuario no existente", Username));
         }
 
         List<GrantedAuthority> roles = new ArrayList<>();

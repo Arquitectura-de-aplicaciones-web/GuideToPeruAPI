@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +18,7 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RestController
+@Controller
 @Secured({"ROLE_ADMIN"})
 @RequestMapping("/usuarios")
 public class UsuarioController {
@@ -30,14 +31,14 @@ public class UsuarioController {
     public String saveUser(@Valid Usuario user, BindingResult result, Model model, SessionStatus status)
             throws Exception {
         if (result.hasErrors()) {
-            return "usersecurity/user";
+            return "usuariosecurity/usuario";
         } else {
             String bcryptPassword = bcrypt.encode(user.getContrasenia());
             user.setContrasenia(bcryptPassword);
             int rpta = uS.insert(user);
             if (rpta > 0) {
                 model.addAttribute("mensaje", "Ya existe");
-                return "usersecurity/user";
+                return "usuariosecurity/usuario";
             } else {
                 model.addAttribute("mensaje", "Se guardó correctamente");
                 status.setComplete();
@@ -45,18 +46,18 @@ public class UsuarioController {
         }
         model.addAttribute("listaUsuarios", uS.list());
 
-        return "usersecurity/listUser";
+        return "usuariosecurity/listUsuario";
     }
 
     @GetMapping("/list")
     public String listUser(Model model) {
         try {
-            model.addAttribute("user", new Usuario());
+            model.addAttribute("usuario", new Usuario());
             model.addAttribute("listaUsuarios", uS.list());
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
         }
-        return "usersecurity/listUser";
+        return "usuariosecurity/listUser";
     }
 
     @GetMapping
