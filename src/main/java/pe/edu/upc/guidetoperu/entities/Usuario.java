@@ -26,13 +26,14 @@ public class Usuario {
 
     public Usuario() { }
 
-    public Usuario(int id, String telefono, String email, String contrasenia, String username, Boolean aux) {
+    public Usuario(int id, String telefono, String email, String contrasenia, String username, Boolean aux, List<Rol> roles) {
         this.id = id;
         this.telefono = telefono;
         this.email = email;
         this.contrasenia = contrasenia;
         Username = username;
         this.aux = aux;
+        this.roles = roles;
     }
 
     public int getId() {
@@ -82,4 +83,13 @@ public class Usuario {
     public void setAux(Boolean aux) {
         this.aux = aux;
     }
+
+    public List<Rol> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Rol> roles) {
+        this.roles = roles;
+    }
+
 }

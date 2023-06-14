@@ -1,22 +1,14 @@
-package pe.edu.upc.guidetoperu.entities;
+package pe.edu.upc.guidetoperu.dtos;
 
+import pe.edu.upc.guidetoperu.entities.Usuario;
 
-import javax.persistence.*;
-import java.io.Serializable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-@Entity
-@Table(name = "roles", uniqueConstraints = { @UniqueConstraint(columnNames = { "user_id", "rol" }) })
+public class RolDTO {
 
-public class Rol implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String rol;
-
-    @ManyToOne
-    @JoinColumn(name="usuario_id", nullable=false)
     private Usuario usuario;
 
     public int getId() {

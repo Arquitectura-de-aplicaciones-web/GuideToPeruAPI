@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import org.springframework.stereotype.Component;
 import io.jsonwebtoken.ExpiredJwtException;
+import pe.edu.upc.guidetoperu.servicesimplement.JwtUserDetailsService;
 
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
