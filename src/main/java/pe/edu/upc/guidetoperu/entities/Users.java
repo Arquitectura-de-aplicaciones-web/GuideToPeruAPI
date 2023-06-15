@@ -5,8 +5,8 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "Usuarios")
-public class Usuario {
+@Table(name = "users")
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -14,25 +14,25 @@ public class Usuario {
     private String telefono;
     @Column(name = "email", length = 30, nullable = false)
     private String email;
-    @Column(name = "contrasenia", length = 20, nullable = false)
-    private String contrasenia;
+    @Column(name = "password", length = 200, nullable = false)
+    private String password;
     @Column (name="Username", length = 20, unique = true)
-    private String Username;
-    private Boolean aux;
+    private String username;
+    private Boolean enabled;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "usuario_id")
-    private List<Rol> roles;
+    @JoinColumn(name = "user_id")
+    private List<Role> roles;
 
-    public Usuario() { }
+    public Users() { }
 
-    public Usuario(int id, String telefono, String email, String contrasenia, String username, Boolean aux, List<Rol> roles) {
+    public Users(int id, String telefono, String email, String password, String username, Boolean enabled, List<Role> roles) {
         this.id = id;
         this.telefono = telefono;
         this.email = email;
-        this.contrasenia = contrasenia;
-        this.Username = username;
-        this.aux = aux;
+        this.password = password;
+        this.username = username;
+        this.enabled = enabled;
         this.roles = roles;
     }
 
@@ -60,36 +60,35 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getUsername() {
-        return Username;
+        return username;
     }
 
     public void setUsername(String username) {
-        Username = username;
+        username = username;
     }
 
-    public Boolean getAux() {
-        return aux;
+    public Boolean getEnabled() {
+        return enabled;
     }
 
-    public void setAux(Boolean aux) {
-        this.aux = aux;
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
-    public List<Rol> getRoles() {
+    public List<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<Rol> roles) {
+    public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
-
 }

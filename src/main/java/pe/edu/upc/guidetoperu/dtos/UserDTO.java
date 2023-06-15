@@ -1,18 +1,17 @@
 package pe.edu.upc.guidetoperu.dtos;
 
-import pe.edu.upc.guidetoperu.entities.Rol;
+import pe.edu.upc.guidetoperu.entities.Role;
 
-import javax.persistence.*;
 import java.util.List;
 
-public class UsuarioDTO {
+public class UserDTO {
     private int id;
     private String telefono;
     private String email;
     private String contrasenia;
     private String Username;
     private Boolean aux;
-    private List<Rol> roles;
+    private List<Role> roles;
 
     public int getId() {
         return id;
@@ -62,11 +61,11 @@ public class UsuarioDTO {
         this.aux = aux;
     }
 
-    public List<Rol> getRoles() {
+    public List<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<Rol> roles) {
+    public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
 }

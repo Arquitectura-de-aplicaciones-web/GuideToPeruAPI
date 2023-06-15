@@ -14,23 +14,23 @@ public class Negocio {
     private String direccionNegocio;
 
     @ManyToOne
-    @JoinColumn(name = "tipoNegocio")
-    private TipoNegocio tipoNegocio;
+    @JoinColumn(name = "idTipoNegocio")
+    private TipoNegocio TipoNegocio;
 
     @OneToOne
     @JoinColumn(name = "IDusuario")
-    private Usuario IDusuario;
+    private Users IDusuario;
     @Column (name = "calificacion", length = 40, nullable = false)
     private int calificacion;
 
     public Negocio() {
     }
 
-    public Negocio(int id, String nameNegocio, String direccionNegocio, TipoNegocio tipoNegocio, Usuario IDusuario, int calificacion) {
+    public Negocio(int id, String nameNegocio, String direccionNegocio, TipoNegocio tipoNegocio, Users IDusuario, int calificacion) {
         this.id = id;
         this.nameNegocio = nameNegocio;
         this.direccionNegocio = direccionNegocio;
-        this.tipoNegocio = tipoNegocio;
+        this.TipoNegocio = tipoNegocio;
         this.IDusuario = IDusuario;
         this.calificacion = calificacion;
     }
@@ -60,18 +60,18 @@ public class Negocio {
     }
 
     public TipoNegocio getTipoNegocio() {
-        return tipoNegocio;
+        return TipoNegocio;
     }
 
     public void setTipoNegocio(TipoNegocio tipoNegocio) {
-        this.tipoNegocio = tipoNegocio;
+        this.TipoNegocio = tipoNegocio;
     }
 
-    public Usuario getIDusuario() {
+    public Users getIDusuario() {
         return IDusuario;
     }
 
-    public void setIDusuario(Usuario IDusuario) {
+    public void setIDusuario(Users IDusuario) {
         this.IDusuario = IDusuario;
     }
 

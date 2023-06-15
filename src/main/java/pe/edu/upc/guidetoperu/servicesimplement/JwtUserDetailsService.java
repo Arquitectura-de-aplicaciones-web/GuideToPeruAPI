@@ -6,8 +6,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import pe.edu.upc.guidetoperu.entities.Usuario;
-import pe.edu.upc.guidetoperu.repositories.IUsuarioRepository;
+import pe.edu.upc.guidetoperu.entities.Users;
+import pe.edu.upc.guidetoperu.repositories.IUserRepository;
 import org.springframework.stereotype.Service;
 
 
@@ -17,7 +17,7 @@ import java.util.List;
 public class JwtUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private IUsuarioRepository repo;
+    private IUserRepository repo;
 
     /*@Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -32,11 +32,11 @@ public class JwtUserDetailsService implements UserDetailsService {
         }
     }*/
     @Override
-    public UserDetails loadUserByUsername(String Username) throws UsernameNotFoundException {
-        Usuario user = repo.findByUsername(Username);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Users user = repo.findByUsername(username);
 
         if(user == null) {
-            throw new UsernameNotFoundException(String.format("Usuario no existente", Username));
+            throw new UsernameNotFoundException(String.format("User not exists", username));
         }
 
         List<GrantedAuthority> roles = new ArrayList<>();
@@ -45,7 +45,7 @@ public class JwtUserDetailsService implements UserDetailsService {
             roles.add(new SimpleGrantedAuthority(rol.getRol()));
         });
 
-        UserDetails ud = new org.springframework.security.core.userdetails.User(user.getUsername(), user.getContrasenia(), user.getAux(), true, true, true, roles);
+        UserDetails ud = new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), user.getEnabled(), true, true, true, roles);
 
         return ud;
     }

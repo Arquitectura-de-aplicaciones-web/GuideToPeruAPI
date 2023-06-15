@@ -6,7 +6,7 @@ public class NegocioDTO {
     private int id;
     private String nameNegocio;
     private String direccionNegocio;
-    private int tipoNegocio;
+    private int TipoNegocio;
     private int IDusuario;
     private int calificacion;
 
@@ -36,11 +36,11 @@ public class NegocioDTO {
     }
 
     public int getTipoNegocio() {
-        return tipoNegocio;
+        return TipoNegocio;
     }
 
-    public void setTipoNegocio(int tipoNegocio) {
-        this.tipoNegocio = tipoNegocio;
+    public void setTipoNegocio(int TipoNegocio) {
+        this.TipoNegocio = TipoNegocio;
     }
 
     public int getIDusuario() {

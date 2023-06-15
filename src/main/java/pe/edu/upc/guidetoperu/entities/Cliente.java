@@ -20,19 +20,19 @@ public class Cliente {
     private String direccion;
     @OneToOne
     @JoinColumn(name = "IDUsuario")
-    private Usuario IDUsuario;
+    private Users IDUsers;
 
     public Cliente() {
     }
 
-    public Cliente(int id, String nameCliente, String apellidoCliente, LocalDate anioNacimiento, int cuentaBancaria, String direccion, Usuario IDUsuario) {
+    public Cliente(int id, String nameCliente, String apellidoCliente, LocalDate anioNacimiento, int cuentaBancaria, String direccion, Users IDUsers) {
         this.id = id;
         this.nameCliente = nameCliente;
         this.apellidoCliente = apellidoCliente;
         this.anioNacimiento = anioNacimiento;
         this.cuentaBancaria = cuentaBancaria;
         this.direccion = direccion;
-        this.IDUsuario = IDUsuario;
+        this.IDUsers = IDUsers;
     }
 
     public int getId() {
@@ -83,11 +83,11 @@ public class Cliente {
         this.direccion = direccion;
     }
 
-    public Usuario getIDUsuario() {
-        return IDUsuario;
+    public Users getIDUsuario() {
+        return IDUsers;
     }
 
-    public void setIDUsuario(Usuario IDUsuario) {
-        this.IDUsuario = IDUsuario;
+    public void setIDUsuario(Users IDUsers) {
+        this.IDUsers = IDUsers;
     }
 }

@@ -1,15 +1,12 @@
 package pe.edu.upc.guidetoperu.dtos;
 
-import pe.edu.upc.guidetoperu.entities.Usuario;
+import pe.edu.upc.guidetoperu.entities.Users;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-public class RolDTO {
+public class RoleDTO {
 
     private int id;
     private String rol;
-    private Usuario usuario;
+    private Users users;
 
     public int getId() {
         return id;
@@ -27,11 +24,11 @@ public class RolDTO {
         this.rol = rol;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Users getUsuario() {
+        return users;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuario(Users users) {
+        this.users = users;
     }
 }

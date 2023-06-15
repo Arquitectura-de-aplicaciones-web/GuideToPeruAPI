@@ -11,51 +11,51 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
-import pe.edu.upc.guidetoperu.entities.Rol;
-import pe.edu.upc.guidetoperu.services.IRolService;
-import pe.edu.upc.guidetoperu.services.IUsuarioService;
+import pe.edu.upc.guidetoperu.entities.Role;
+import pe.edu.upc.guidetoperu.services.IRoleService;
+import pe.edu.upc.guidetoperu.services.IUserService;
 
 @Controller
 @SessionAttributes
 @RequestMapping("/roles")
-public class RolController {
+public class RoleController {
 
     @Autowired
-    private IUsuarioService uService;
+    private IUserService uService;
     @Autowired
-    private IRolService rService;
+    private IRoleService rService;
 
     @GetMapping("/new")
     public String newRole(Model model) {
-        model.addAttribute("rol", new Rol());
+        model.addAttribute("role", new Role());
         model.addAttribute("listaUsuarios", uService.list());
-        return "rol/rol";
+        return "role/role";
     }
 
     @PostMapping("/save")
-    public String saveRol(@Validated Rol rol, BindingResult result, Model model, SessionStatus status) throws Exception {
+    public String saveRole(@Validated Role role, BindingResult result, Model model, SessionStatus status) throws Exception {
         if (result.hasErrors()) {
-            return "rol/rol";
+            return "role/role";
         } else {
-            rService.insert(rol);
+            rService.insert(role);
             model.addAttribute("mensaje", "Se guardó correctamente");
             status.setComplete();
         }
         model.addAttribute("listaRoles", rService.list());
 
-        return "rol/rol";
+        return "role/role";
 
     }
 
     @GetMapping("/list")
-    public String listRol(Model model) {
+    public String listRole(Model model) {
         try {
-            model.addAttribute("rol", new Rol());
+            model.addAttribute("role", new Role());
             model.addAttribute("listaRoles", rService.list());
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
         }
-        return "rol/listRol";
+        return "role/listRole";
     }
 
 }

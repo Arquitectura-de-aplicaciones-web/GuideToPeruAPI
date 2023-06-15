@@ -10,9 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
-import pe.edu.upc.guidetoperu.dtos.UsuarioDTO;
-import pe.edu.upc.guidetoperu.entities.Usuario;
-import pe.edu.upc.guidetoperu.services.IUsuarioService;
+import pe.edu.upc.guidetoperu.dtos.UserDTO;
+import pe.edu.upc.guidetoperu.entities.Users;
+import pe.edu.upc.guidetoperu.services.IUserService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -21,24 +21,24 @@ import java.util.stream.Collectors;
 @Controller
 @Secured({"ROLE_ADMIN"})
 @RequestMapping("/usuarios")
-public class UsuarioController {
+public class UserController {
     @Autowired
     private PasswordEncoder bcrypt;
     @Autowired
-    private IUsuarioService uS;
+    private IUserService uS;
 
     @PostMapping("/save")
-    public String saveUser(@Valid Usuario user, BindingResult result, Model model, SessionStatus status)
+    public String saveUser(@Valid Users user, BindingResult result, Model model, SessionStatus status)
             throws Exception {
         if (result.hasErrors()) {
-            return "usuariosecurity/usuario";
+            return "usersecurity/user";
         } else {
-            String bcryptPassword = bcrypt.encode(user.getContrasenia());
-            user.setContrasenia(bcryptPassword);
+            String bcryptPassword = bcrypt.encode(user.getPassword());
+            user.setPassword(bcryptPassword);
             int rpta = uS.insert(user);
             if (rpta > 0) {
                 model.addAttribute("mensaje", "Ya existe");
-                return "usuariosecurity/usuario";
+                return "usersecurity/user";
             } else {
                 model.addAttribute("mensaje", "Se guardó correctamente");
                 status.setComplete();
@@ -46,34 +46,34 @@ public class UsuarioController {
         }
         model.addAttribute("listaUsuarios", uS.list());
 
-        return "usuariosecurity/listUsuario";
+        return "usersecurity/listUser";
     }
 
     @GetMapping("/list")
     public String listUser(Model model) {
         try {
-            model.addAttribute("usuario", new Usuario());
+            model.addAttribute("user", new Users());
             model.addAttribute("listaUsuarios", uS.list());
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
         }
-        return "usuariosecurity/listUser";
+        return "usersecurity/listUser";
     }
 
     @GetMapping
     @PreAuthorize("hasAuthority('ADMIN')")
-    public List<UsuarioDTO> list() {
+    public List<UserDTO> list() {
         return uS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
-            return m.map(x,UsuarioDTO.class);
+            return m.map(x, UserDTO.class);
 
         }).collect(Collectors.toList());
     }
 
     @GetMapping("/{id}")
-    public UsuarioDTO listID(@PathVariable("id") Integer idUser) {
+    public UserDTO listID(@PathVariable("id") Integer idUser) {
         ModelMapper m = new ModelMapper();
-        UsuarioDTO dto = m.map(uS.listID(idUser), UsuarioDTO.class);
+        UserDTO dto = m.map(uS.listID(idUser), UserDTO.class);
         return dto;
     }
 
@@ -83,9 +83,9 @@ public class UsuarioController {
     }
 
     @PutMapping
-    public void update(@RequestBody UsuarioDTO dto) {
+    public void update(@RequestBody UserDTO dto) {
         ModelMapper m = new ModelMapper();
-        Usuario u = m.map(dto, Usuario.class);
+        Users u = m.map(dto, Users.class);
         uS.insert(u);
     }
 
