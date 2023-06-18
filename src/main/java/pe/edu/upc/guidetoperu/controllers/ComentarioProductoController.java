@@ -17,7 +17,7 @@ public class ComentarioProductoController {
     @Autowired
     private IComentarioProductoService cpS;
     @PostMapping
-    @PreAuthorize("hasAuthority('ADMIN')('CLIENTE')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void insert(@RequestBody ComentarioProductoDTO dto){
         ModelMapper m = new ModelMapper();
         ComentarioProducto cp = m.map(dto, ComentarioProducto.class);

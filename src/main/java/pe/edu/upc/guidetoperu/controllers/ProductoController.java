@@ -17,7 +17,7 @@ public class ProductoController {
     @Autowired
     private IProductoService pS;
     @PostMapping
-    @PreAuthorize("hasAuthority('ADMIN')('NEGOCIO')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void insert(@RequestBody ProductoDTO dto){
         ModelMapper m=new ModelMapper();
         Producto a =m.map(dto, Producto.class);
@@ -31,19 +31,19 @@ public class ProductoController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')('NEGOCIO')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void delete (@PathVariable("id")Integer id){
         pS.delete(id);
     }
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')('NEGOCIO')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ProductoDTO listId (@PathVariable("id")Integer id){
         ModelMapper m=new ModelMapper();
         ProductoDTO dto=m.map(pS.listId(id),ProductoDTO.class);
         return dto;
     }
     @PutMapping
-    @PreAuthorize("hasAuthority('ADMIN')('NEGOCIO')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void goUpdate(@RequestBody ProductoDTO dto ){
         ModelMapper m=new ModelMapper();
         Producto a=m.map(dto, Producto.class);
