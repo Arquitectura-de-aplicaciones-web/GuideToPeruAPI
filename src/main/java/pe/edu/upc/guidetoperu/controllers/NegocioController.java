@@ -25,7 +25,7 @@ public class NegocioController {
 
     }
     @GetMapping
-    
+
     public List<NegocioDTO> list() {
         return aS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
