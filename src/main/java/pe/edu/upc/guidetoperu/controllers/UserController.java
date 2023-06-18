@@ -71,6 +71,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public UserDTO listID(@PathVariable("id") Integer idUser) {
         ModelMapper m = new ModelMapper();
         UserDTO dto = m.map(uS.listID(idUser), UserDTO.class);
@@ -78,11 +79,13 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void delete(@PathVariable("id") Integer idUser) {
         uS.delete(idUser);
     }
 
     @PutMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void update(@RequestBody UserDTO dto) {
         ModelMapper m = new ModelMapper();
         Users u = m.map(dto, Users.class);

@@ -17,6 +17,7 @@ public class NegocioController {
     @Autowired
     private INegocioService aS;
     @PostMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void insert(@RequestBody NegocioDTO dto){
         ModelMapper m=new ModelMapper();
        Negocio a =m.map(dto,Negocio.class);
@@ -24,7 +25,7 @@ public class NegocioController {
 
     }
     @GetMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    
     public List<NegocioDTO> list() {
         return aS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
@@ -33,16 +34,19 @@ public class NegocioController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void delete (@PathVariable("id")Integer id){
         aS.delete(id);
     }
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public NegocioDTO listId (@PathVariable("id")Integer id){
         ModelMapper m=new ModelMapper();
         NegocioDTO dto=m.map(aS.listId(id),NegocioDTO.class);
         return dto;
     }
     @PutMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void goUpdate(@RequestBody NegocioDTO dto ){
         ModelMapper m=new ModelMapper();
         Negocio a=m.map(dto, Negocio.class);

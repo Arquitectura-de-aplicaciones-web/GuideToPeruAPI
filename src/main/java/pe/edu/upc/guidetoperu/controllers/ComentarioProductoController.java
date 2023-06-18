@@ -2,6 +2,7 @@ package pe.edu.upc.guidetoperu.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.guidetoperu.dtos.ComentarioProductoDTO;
 import pe.edu.upc.guidetoperu.entities.ComentarioProducto;
@@ -16,6 +17,7 @@ public class ComentarioProductoController {
     @Autowired
     private IComentarioProductoService cpS;
     @PostMapping
+    @PreAuthorize("hasAuthority('ADMIN')('CLIENTE')")
     public void insert(@RequestBody ComentarioProductoDTO dto){
         ModelMapper m = new ModelMapper();
         ComentarioProducto cp = m.map(dto, ComentarioProducto.class);

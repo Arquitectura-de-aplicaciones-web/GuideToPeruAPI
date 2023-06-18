@@ -18,25 +18,32 @@ public class DestinosController {
     private IDestinosService aS;
 
     @PostMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void registrar(@RequestBody DestinosDTO dto) {
         ModelMapper m = new ModelMapper();
         Destinos a = m.map(dto, Destinos.class);
         aS.insertar(a);
     }
 
+
     @PutMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void modificar(@RequestBody DestinosDTO dto) {
         ModelMapper m = new ModelMapper();
         Destinos a = m.map(dto, Destinos.class);
         aS.insertar(a);
     }
 
+
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void eliminar(@PathVariable("id") Integer id) {
         aS.eliminar(id);
     }
 
+
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public DestinosDTO listarId(@PathVariable("id") Integer id) {
         ModelMapper m=new ModelMapper();
         DestinosDTO dto=m.map(aS.listarId(id),DestinosDTO.class);
@@ -44,7 +51,6 @@ public class DestinosController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
     public List<DestinosDTO> listar() {
         return aS.listar().stream().map(x->{
             ModelMapper m=new ModelMapper();

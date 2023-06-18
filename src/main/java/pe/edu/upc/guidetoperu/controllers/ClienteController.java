@@ -19,6 +19,7 @@ public class ClienteController {
     private IClienteService cS;
 
     @PostMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void insert(@RequestBody ClienteDTO dto){
         ModelMapper m=new ModelMapper();
         Cliente c=m.map(dto,Cliente.class);
@@ -36,11 +37,13 @@ public class ClienteController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
  public void  delete(@PathVariable("id") Integer id){
         cS.delete(id);
     }
 
     @GetMapping ("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ClienteDTO listId(@PathVariable("id") Integer id){
         ModelMapper m=new ModelMapper();
         ClienteDTO dto=m.map(cS.listID(id), ClienteDTO.class);
@@ -48,6 +51,7 @@ public class ClienteController {
     }
 
     @PutMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
     public  void goUpdate (@RequestBody ClienteDTO dto){
         ModelMapper m=new ModelMapper();
         Cliente c=m.map(dto,Cliente.class);
