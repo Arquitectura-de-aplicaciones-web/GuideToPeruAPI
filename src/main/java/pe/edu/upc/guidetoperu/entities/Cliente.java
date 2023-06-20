@@ -19,7 +19,7 @@ public class Cliente {
     @Column(name = "direccion",length = 20,nullable=true)
     private String direccion;
     @OneToOne
-    @JoinColumn(name = "IDUsuario")
+    @JoinColumn(name = "idusuario")
     private Users IDUsers;
 
     public Cliente() {
