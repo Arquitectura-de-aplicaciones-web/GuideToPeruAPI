@@ -1,4 +1,6 @@
 package pe.edu.upc.guidetoperu.dtos;
+import pe.edu.upc.guidetoperu.entities.Users;
+
 import java.time.LocalDate;
 
 public class ClienteDTO {
@@ -9,7 +11,7 @@ public class ClienteDTO {
     private LocalDate anioNacimiento;
     private int cuentaBancaria;
     private String direccion;
-    private int IDUsuario;
+    private Users idusuario;
 
     public int getId() {
         return id;
@@ -59,11 +61,11 @@ public class ClienteDTO {
         this.direccion = direccion;
     }
 
-    public int getIDUsuario() {
-        return IDUsuario;
+    public Users getIDUsuario() {
+        return idusuario;
     }
 
-    public void setIDUsuario(int IDUsuario) {
-        this.IDUsuario = IDUsuario;
+    public void setIDUsuario(Users idusuario) {
+        this.idusuario = idusuario;
     }
 }

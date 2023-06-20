@@ -14,20 +14,20 @@ import java.util.List;
 public interface IEtiquetaProductoRepository extends JpaRepository<EtiquetaProducto, Integer> {
     @Query("FROM EtiquetaProducto cp WHERE cp.etiqueta.idEtiqueta = :idEtiqueta")
     List<EtiquetaProducto> listByEtiqueta(@Param("idEtiqueta") int idEtiqueta);
-    @Query("FROM EtiquetaProducto cp WHERE cp.producto.idProducto = :idProducto")
-    List<EtiquetaProducto> listByProducto(@Param("idProducto") int idProducto);
-    @Query("FROM EtiquetaProducto cp WHERE cp.etiqueta.idEtiqueta = :idEtiqueta AND cp.producto.idProducto = :idProducto")
-    List<EtiquetaProducto> listByEtiquetaProducto(@Param("idEtiqueta") int idEtiqueta, @Param("idProducto") int idProducto);
+    @Query("FROM EtiquetaProducto cp WHERE cp.producto.idproducto = :idproducto")
+    List<EtiquetaProducto> listByProducto(@Param("idproducto") int idproducto);
+    @Query("FROM EtiquetaProducto cp WHERE cp.etiqueta.idEtiqueta = :idEtiqueta AND cp.producto.idproducto = :idproducto")
+    List<EtiquetaProducto> listByEtiquetaProducto(@Param("idEtiqueta") int idEtiqueta, @Param("idproducto") int idproducto);
     @Transactional
     @Modifying
     @Query("DELETE FROM EtiquetaProducto cp WHERE cp.etiqueta.idEtiqueta = :idEtiqueta")
     void deleteByEtiqueta(@Param("idEtiqueta") int idEtiqueta);
     @Transactional
     @Modifying
-    @Query("DELETE FROM EtiquetaProducto cp WHERE cp.producto.idProducto = :idProducto")
-    void deleteByProducto(@Param("idProducto") int idProducto);
+    @Query("DELETE FROM EtiquetaProducto cp WHERE cp.producto.idproducto = :idproducto")
+    void deleteByProducto(@Param("idproducto") int idproducto);
     @Transactional
     @Modifying
-    @Query("DELETE FROM EtiquetaProducto cp WHERE cp.etiqueta.idEtiqueta = :idEtiqueta AND cp.producto.idProducto = :idProducto")
-    void deleteByEtiquetaProducto(@Param("idEtiqueta") int idEtiqueta, @Param("idProducto") int idProducto);
+    @Query("DELETE FROM EtiquetaProducto cp WHERE cp.etiqueta.idEtiqueta = :idEtiqueta AND cp.producto.idproducto = :idproducto")
+    void deleteByEtiquetaProducto(@Param("idEtiqueta") int idEtiqueta, @Param("idproducto") int idproducto);
 }

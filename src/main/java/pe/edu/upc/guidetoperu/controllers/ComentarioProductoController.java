@@ -31,22 +31,22 @@ public class ComentarioProductoController {
         }).collect(Collectors.toList());
     }
     @GetMapping("/cliente/{id}")
-    public List<ComentarioProductoDTO> listByCliente(@PathVariable("id") Integer idCliente){
-        return cpS.listByCliente(idCliente).stream().map(x -> {
+    public List<ComentarioProductoDTO> listByCliente(@PathVariable("id") Integer idcliente){
+        return cpS.listByCliente(idcliente).stream().map(x -> {
             ModelMapper m = new ModelMapper();
             return m.map(x, ComentarioProductoDTO.class);
         }).collect(Collectors.toList());
     }
     @GetMapping("/producto/{id}")
-    public List<ComentarioProductoDTO> listByProducto(@PathVariable("id") int idProducto){
-        return cpS.listByProducto(idProducto).stream().map(x -> {
+    public List<ComentarioProductoDTO> listByProducto(@PathVariable("id") int idproducto){
+        return cpS.listByProducto(idproducto).stream().map(x -> {
             ModelMapper m = new ModelMapper();
             return m.map(x, ComentarioProductoDTO.class);
         }).collect(Collectors.toList());
     }
     @GetMapping("/cliente-producto/{idcliente}-{idproducto}")
-    public List<ComentarioProductoDTO> listByClienteProducto(@PathVariable("idcliente") Integer idCliente, @PathVariable("idproducto") Integer idProducto){
-        return cpS.listByClienteProducto(idCliente, idProducto).stream().map(x -> {
+    public List<ComentarioProductoDTO> listByClienteProducto(@PathVariable("idcliente") Integer idcliente, @PathVariable("idproducto") Integer idproducto){
+        return cpS.listByClienteProducto(idcliente, idproducto).stream().map(x -> {
             ModelMapper m = new ModelMapper();
             return m.map(x, ComentarioProductoDTO.class);
         }).collect(Collectors.toList());
@@ -56,17 +56,17 @@ public class ComentarioProductoController {
         cpS.delete(idComentarioProducto);
     }
     @DeleteMapping("/cliente/{id}")
-    public void deleteByCliente(@PathVariable("id") Integer idCliente){
-        cpS.deleteByCliente(idCliente);
-        System.out.println(idCliente);
+    public void deleteByCliente(@PathVariable("id") Integer idcliente){
+        cpS.deleteByCliente(idcliente);
+        System.out.println(idcliente);
     }
     public @DeleteMapping("/producto/{id}")
-    void deleteByProducto(@PathVariable("id") Integer idProducto){
-        cpS.deleteByProducto(idProducto);
+    void deleteByProducto(@PathVariable("id") Integer idproducto){
+        cpS.deleteByProducto(idproducto);
     }
     @DeleteMapping("/cliente-producto/{idcliente}-{idproducto}")
-    public void deleteByClienteProducto(@PathVariable("idcliente") Integer idCliente, @PathVariable("idproducto") Integer idProducto){
-        cpS.deleteByClienteProducto(idCliente, idProducto);
+    public void deleteByClienteProducto(@PathVariable("idcliente") Integer idcliente, @PathVariable("idproducto") Integer idproducto){
+        cpS.deleteByClienteProducto(idcliente, idproducto);
     }
     @PutMapping
     public void update(@RequestBody ComentarioProductoDTO dto){

@@ -29,13 +29,13 @@ public class EtiquetaProductoServiceImplement implements IEtiquetaProductoServic
     }
 
     @Override
-    public List<EtiquetaProducto> listByProducto(int idProducto) {
-        return epR.listByProducto(idProducto);
+    public List<EtiquetaProducto> listByProducto(int idproducto) {
+        return epR.listByProducto(idproducto);
     }
 
     @Override
-    public List<EtiquetaProducto> listByEtiquetaProducto(int idEtiqueta, int idProducto) {
-        return epR.listByEtiquetaProducto(idEtiqueta, idProducto);
+    public List<EtiquetaProducto> listByEtiquetaProducto(int idEtiqueta, int idproducto) {
+        return epR.listByEtiquetaProducto(idEtiqueta, idproducto);
     }
 
     @Override
@@ -49,12 +49,12 @@ public class EtiquetaProductoServiceImplement implements IEtiquetaProductoServic
     }
 
     @Override
-    public void deleteByProducto(int idProducto) {
-        epR.deleteByProducto(idProducto);
+    public void deleteByProducto(int idproducto) {
+        epR.deleteByProducto(idproducto);
     }
 
     @Override
-    public void deleteByEtiquetaProducto(int idEtiqueta, int idProducto) {
-        epR.deleteByEtiquetaProducto(idEtiqueta, idProducto);
+    public void deleteByEtiquetaProducto(int idEtiqueta, int idproducto) {
+        epR.deleteByEtiquetaProducto(idEtiqueta, idproducto);
     }
 }

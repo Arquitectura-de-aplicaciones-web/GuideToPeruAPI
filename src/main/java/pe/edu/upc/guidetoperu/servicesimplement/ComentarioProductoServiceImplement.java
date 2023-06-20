@@ -24,18 +24,18 @@ public class ComentarioProductoServiceImplement implements IComentarioProductoSe
     }
 
     @Override
-    public List<ComentarioProducto> listByCliente(int idCliente) {
-        return cpR.listByCliente(idCliente);
+    public List<ComentarioProducto> listByCliente(int idcliente) {
+        return cpR.listByCliente(idcliente);
     }
 
     @Override
-    public List<ComentarioProducto> listByProducto(int idProducto) {
-        return cpR.listByProducto(idProducto);
+    public List<ComentarioProducto> listByProducto(int idproducto) {
+        return cpR.listByProducto(idproducto);
     }
 
     @Override
-    public List<ComentarioProducto> listByClienteProducto(int idCliente, int idProducto) {
-        return cpR.listByClienteProducto(idCliente, idProducto);
+    public List<ComentarioProducto> listByClienteProducto(int idcliente, int idproducto) {
+        return cpR.listByClienteProducto(idcliente, idproducto);
     }
 
     @Override
@@ -44,17 +44,17 @@ public class ComentarioProductoServiceImplement implements IComentarioProductoSe
     }
 
     @Override
-    public void deleteByCliente(int idCliente) {
-        cpR.deleteByCliente(idCliente);
+    public void deleteByCliente(int idcliente) {
+        cpR.deleteByCliente(idcliente);
     }
 
     @Override
-    public void deleteByProducto(int idProducto) {
-        cpR.deleteByProducto(idProducto);
+    public void deleteByProducto(int idproducto) {
+        cpR.deleteByProducto(idproducto);
     }
 
     @Override
-    public void deleteByClienteProducto(int idCliente, int idProducto) {
-        cpR.deleteByClienteProducto(idCliente, idProducto);
+    public void deleteByClienteProducto(int idcliente, int idproducto) {
+        cpR.deleteByClienteProducto(idcliente, idproducto);
     }
 }

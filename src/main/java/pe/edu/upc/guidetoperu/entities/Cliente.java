@@ -20,7 +20,7 @@ public class Cliente {
     private String direccion;
     @OneToOne
     @JoinColumn(name = "idusuario")
-    private Users IDUsers;
+    private Users idusuario;
 
     public Cliente() {
     }
@@ -32,7 +32,7 @@ public class Cliente {
         this.anioNacimiento = anioNacimiento;
         this.cuentaBancaria = cuentaBancaria;
         this.direccion = direccion;
-        this.IDUsers = IDUsers;
+        this.idusuario = IDUsers;
     }
 
     public int getId() {
@@ -84,10 +84,10 @@ public class Cliente {
     }
 
     public Users getIDUsuario() {
-        return IDUsers;
+        return idusuario;
     }
 
     public void setIDUsuario(Users IDUsers) {
-        this.IDUsers = IDUsers;
+        this.idusuario = IDUsers;
     }
 }

@@ -36,15 +36,15 @@ public class EtiquetaProductoController {
         }).collect(Collectors.toList());
     }
     @GetMapping("/producto/{id}")
-    public List<EtiquetaProductoDTO> listByProducto(@PathVariable("id") int idProducto){
-        return epS.listByProducto(idProducto).stream().map(x -> {
+    public List<EtiquetaProductoDTO> listByProducto(@PathVariable("id") int idproducto){
+        return epS.listByProducto(idproducto).stream().map(x -> {
             ModelMapper m = new ModelMapper();
             return m.map(x, EtiquetaProductoDTO.class);
         }).collect(Collectors.toList());
     }
     @GetMapping("/etiqueta-producto/{idetiqueta}-{idproducto}")
-    public List<EtiquetaProductoDTO> listByEtiquetaProducto(@PathVariable("idetiqueta") Integer idEtiqueta, @PathVariable("idproducto") Integer idProducto){
-        return epS.listByEtiquetaProducto(idEtiqueta, idProducto).stream().map(x -> {
+    public List<EtiquetaProductoDTO> listByEtiquetaProducto(@PathVariable("idetiqueta") Integer idEtiqueta, @PathVariable("idproducto") Integer idproducto){
+        return epS.listByEtiquetaProducto(idEtiqueta, idproducto).stream().map(x -> {
             ModelMapper m = new ModelMapper();
             return m.map(x, EtiquetaProductoDTO.class);
         }).collect(Collectors.toList());
@@ -59,12 +59,12 @@ public class EtiquetaProductoController {
         System.out.println(idEtiqueta);
     }
     public @DeleteMapping("/producto/{id}")
-    void deleteByProducto(@PathVariable("id") Integer idProducto){
-        epS.deleteByProducto(idProducto);
+    void deleteByProducto(@PathVariable("id") Integer idproducto){
+        epS.deleteByProducto(idproducto);
     }
     @DeleteMapping("/etiqueta-producto/{idetiqueta}-{idproducto}")
-    public void deleteByEtiquetaProducto(@PathVariable("idetiqueta") Integer idEtiqueta, @PathVariable("idproducto") Integer idProducto){
-        epS.deleteByEtiquetaProducto(idEtiqueta, idProducto);
+    public void deleteByEtiquetaProducto(@PathVariable("idetiqueta") Integer idEtiqueta, @PathVariable("idproducto") Integer idproducto){
+        epS.deleteByEtiquetaProducto(idEtiqueta, idproducto);
     }
     @PutMapping
     public void update(@RequestBody EtiquetaProductoDTO dto){

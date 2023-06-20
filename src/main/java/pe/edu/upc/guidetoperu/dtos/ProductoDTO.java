@@ -4,7 +4,7 @@ import pe.edu.upc.guidetoperu.entities.Negocio;
 
 
 public class ProductoDTO {
-    private int idProducto;
+    private int idproducto;
 
     private String nombre;
 
@@ -18,14 +18,14 @@ public class ProductoDTO {
 
     private int calificacion;
 
-    private Negocio negocio;
+    private Negocio idnegocio;
 
     public int getIdProducto() {
-        return idProducto;
+        return idproducto;
     }
 
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
+    public void setIdProducto(int idproducto) {
+        this.idproducto = idproducto;
     }
 
     public String getNombre() {
@@ -77,10 +77,10 @@ public class ProductoDTO {
     }
 
     public Negocio getNegocio() {
-        return negocio;
+        return idnegocio;
     }
 
     public void setNegocio(Negocio negocio) {
-        this.negocio = negocio;
+        this.idnegocio = negocio;
     }
 }

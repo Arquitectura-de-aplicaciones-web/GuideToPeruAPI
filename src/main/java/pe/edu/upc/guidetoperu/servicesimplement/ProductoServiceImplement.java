@@ -20,8 +20,8 @@ public class ProductoServiceImplement implements IProductoService {
     public List<Producto> list() { return pR.findAll(); }
 
     @Override
-    public void delete(int idProducto) { pR.deleteById(idProducto); }
+    public void delete(int idproducto) { pR.deleteById(idproducto); }
 
     @Override
-    public Producto listId(int idProducto) { return pR.findById(idProducto).orElse(new Producto()); }
+    public Producto listId(int idproducto) { return pR.findById(idproducto).orElse(new Producto()); }
 }

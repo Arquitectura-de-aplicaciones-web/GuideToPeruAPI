@@ -12,22 +12,22 @@ import java.util.List;
 
 @Repository
 public interface IComentarioProductoRepository extends JpaRepository<ComentarioProducto, Integer> {
-    @Query("FROM ComentarioProducto cp WHERE cp.cliente.id = :idCliente")
-    List<ComentarioProducto> listByCliente(@Param("idCliente") int idCliente);
-    @Query("FROM ComentarioProducto cp WHERE cp.producto.idProducto = :idProducto")
-    List<ComentarioProducto> listByProducto(@Param("idProducto") int idProducto);
-    @Query("FROM ComentarioProducto cp WHERE cp.cliente.id = :idCliente AND cp.producto.idProducto = :idProducto")
-    List<ComentarioProducto> listByClienteProducto(@Param("idCliente") int idCliente, @Param("idProducto") int idProducto);
+    @Query("FROM ComentarioProducto cp WHERE cp.cliente.id = :idcliente")
+    List<ComentarioProducto> listByCliente(@Param("idcliente") int idcliente);
+    @Query("FROM ComentarioProducto cp WHERE cp.producto.idproducto = :idproducto")
+    List<ComentarioProducto> listByProducto(@Param("idproducto") int idproducto);
+    @Query("FROM ComentarioProducto cp WHERE cp.cliente.id = :idcliente AND cp.producto.idproducto = :idproducto")
+    List<ComentarioProducto> listByClienteProducto(@Param("idcliente") int idcliente, @Param("idproducto") int idproducto);
     @Transactional
     @Modifying
-    @Query("DELETE FROM ComentarioProducto cp WHERE cp.cliente.id = :idCliente")
-    void deleteByCliente(@Param("idCliente") int idCliente);
+    @Query("DELETE FROM ComentarioProducto cp WHERE cp.cliente.id = :idcliente")
+    void deleteByCliente(@Param("idcliente") int idcliente);
     @Transactional
     @Modifying
-    @Query("DELETE FROM ComentarioProducto cp WHERE cp.producto.idProducto = :idProducto")
-    void deleteByProducto(@Param("idProducto") int idProducto);
+    @Query("DELETE FROM ComentarioProducto cp WHERE cp.producto.idproducto = :idproducto")
+    void deleteByProducto(@Param("idproducto") int idproducto);
     @Transactional
     @Modifying
-    @Query("DELETE FROM ComentarioProducto cp WHERE cp.cliente.id = :idCliente AND cp.producto.idProducto = :idProducto")
-    void deleteByClienteProducto(@Param("idCliente") int idCliente, @Param("idProducto") int idProducto);
+    @Query("DELETE FROM ComentarioProducto cp WHERE cp.cliente.id = :idcliente AND cp.producto.idproducto = :idproducto")
+    void deleteByClienteProducto(@Param("idcliente") int idcliente, @Param("idproducto") int idproducto);
 }

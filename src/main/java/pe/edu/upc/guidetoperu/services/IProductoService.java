@@ -9,7 +9,7 @@ public interface IProductoService {
 
     List<Producto> list();
 
-    public void delete(int idProducto);
+    public void delete(int idproducto);
 
-    public Producto listId(int idProducto);
+    public Producto listId(int idproducto);
 }

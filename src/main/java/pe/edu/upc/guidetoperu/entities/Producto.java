@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idProducto;
+    private int idproducto;
 
     @Column(name = "nombre", length = 30, nullable = false)
     private String nombre;
@@ -28,29 +28,29 @@ public class Producto {
     private int calificacion;
 
     @ManyToOne
-    @JoinColumn(name = "idNegocio")
-    private Negocio negocio;
+    @JoinColumn(name = "idnegocio")
+    private Negocio idnegocio;
 
     public Producto() {
     }
 
-    public Producto(int idProducto, String nombre, String descripcion, float precio, int cantidad, boolean visible, int calificacion, Negocio negocio) {
-        this.idProducto = idProducto;
+    public Producto(int idproducto, String nombre, String descripcion, float precio, int cantidad, boolean visible, int calificacion, Negocio negocio) {
+        this.idproducto = idproducto;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
         this.cantidad = cantidad;
         this.visible = visible;
         this.calificacion = calificacion;
-        this.negocio = negocio;
+        this.idnegocio = negocio;
     }
 
     public int getIdProducto() {
-        return idProducto;
+        return idproducto;
     }
 
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
+    public void setIdProducto(int idproducto) {
+        this.idproducto = idproducto;
     }
 
     public String getNombre() {
@@ -102,10 +102,10 @@ public class Producto {
     }
 
     public Negocio getNegocio() {
-        return negocio;
+        return idnegocio;
     }
 
     public void setNegocio(Negocio negocio) {
-        this.negocio = negocio;
+        this.idnegocio = negocio;
     }
 }
