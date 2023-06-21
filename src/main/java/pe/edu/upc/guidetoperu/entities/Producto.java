@@ -34,7 +34,7 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(int idproducto, String nombre, String descripcion, float precio, int cantidad, boolean visible, int calificacion, Negocio negocio) {
+    public Producto(int idproducto, String nombre, String descripcion, float precio, int cantidad, boolean visible, int calificacion, Negocio idnegocio) {
         this.idproducto = idproducto;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -42,7 +42,7 @@ public class Producto {
         this.cantidad = cantidad;
         this.visible = visible;
         this.calificacion = calificacion;
-        this.idnegocio = negocio;
+        this.idnegocio = idnegocio;
     }
 
     public int getIdProducto() {
@@ -105,7 +105,7 @@ public class Producto {
         return idnegocio;
     }
 
-    public void setNegocio(Negocio negocio) {
-        this.idnegocio = negocio;
+    public void setNegocio(Negocio idnegocio) {
+        this.idnegocio = idnegocio;
     }
 }
