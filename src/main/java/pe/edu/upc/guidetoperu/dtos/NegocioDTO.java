@@ -1,13 +1,15 @@
 package pe.edu.upc.guidetoperu.dtos;
 
+import pe.edu.upc.guidetoperu.entities.Users;
+
 import javax.persistence.Column;
 
 public class NegocioDTO {
     private int id;
     private String nameNegocio;
     private String direccionNegocio;
-    private int TipoNegocio;
-    private int IDusuario;
+    private String TipoNegocio;
+    private Users IDusuario;
     private int calificacion;
 
 
@@ -35,19 +37,19 @@ public class NegocioDTO {
         this.direccionNegocio = direccionNegocio;
     }
 
-    public int getTipoNegocio() {
+    public String getTipoNegocio() {
         return TipoNegocio;
     }
 
-    public void setTipoNegocio(int TipoNegocio) {
+    public void setTipoNegocio(String TipoNegocio) {
         this.TipoNegocio = TipoNegocio;
     }
 
-    public int getIDusuario() {
+    public Users getIDusuario() {
         return IDusuario;
     }
 
-    public void setIDusuario(int IDusuario) {
+    public void setIDusuario(Users IDusuario) {
         this.IDusuario = IDusuario;
     }
 

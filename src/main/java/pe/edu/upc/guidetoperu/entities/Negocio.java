@@ -13,9 +13,8 @@ public class Negocio {
     @Column(name = "direccionNegocio", length = 40, nullable = false)
     private String direccionNegocio;
 
-    @ManyToOne
-    @JoinColumn(name = "idTipoNegocio")
-    private TipoNegocio TipoNegocio;
+    @Column(name = "TipoNegocio", length = 40, nullable = false)
+    private String TipoNegocio;
 
     @OneToOne
     @JoinColumn(name = "IDusuario")
@@ -26,11 +25,11 @@ public class Negocio {
     public Negocio() {
     }
 
-    public Negocio(int id, String nameNegocio, String direccionNegocio, TipoNegocio tipoNegocio, Users IDusuario, int calificacion) {
+    public Negocio(int id, String nameNegocio, String direccionNegocio, String TipoNegocio, Users IDusuario, int calificacion) {
         this.id = id;
         this.nameNegocio = nameNegocio;
         this.direccionNegocio = direccionNegocio;
-        this.TipoNegocio = tipoNegocio;
+        this.TipoNegocio = TipoNegocio;
         this.IDusuario = IDusuario;
         this.calificacion = calificacion;
     }
@@ -59,12 +58,12 @@ public class Negocio {
         this.direccionNegocio = direccionNegocio;
     }
 
-    public TipoNegocio getTipoNegocio() {
+    public String getTipoNegocio() {
         return TipoNegocio;
     }
 
-    public void setTipoNegocio(TipoNegocio tipoNegocio) {
-        this.TipoNegocio = tipoNegocio;
+    public void setTipoNegocio(String TipoNegocio) {
+        this.TipoNegocio = TipoNegocio;
     }
 
     public Users getIDusuario() {
