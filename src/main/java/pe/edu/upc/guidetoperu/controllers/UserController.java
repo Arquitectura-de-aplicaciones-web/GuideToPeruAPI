@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
-@Secured({"ADMIN"})
+@PreAuthorize("hasAuthority('ADMIN')")
 @RequestMapping("/usuarios")
 public class UserController {
     @Autowired

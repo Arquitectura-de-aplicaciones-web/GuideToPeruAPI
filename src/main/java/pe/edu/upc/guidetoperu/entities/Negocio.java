@@ -16,11 +16,12 @@ public class Negocio {
     @Column(name = "TipoNegocio", length = 40, nullable = false)
     private String TipoNegocio;
 
+    @Column (name = "calificacion", length = 40, nullable = false)
+    private int calificacion;
+
     @OneToOne
     @JoinColumn(name = "IDusuario")
     private Users IDusuario;
-    @Column (name = "calificacion", length = 40, nullable = false)
-    private int calificacion;
 
     public Negocio() {
     }

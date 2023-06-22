@@ -8,7 +8,7 @@ public class UserDTO {
     private int id;
     private String telefono;
     private String email;
-    private String contrasenia;
+    private String password;
     private String Username;
     private Boolean aux;
     private List<Role> roles;
@@ -38,11 +38,11 @@ public class UserDTO {
     }
 
     public String getContrasenia() {
-        return contrasenia;
+        return password;
     }
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
+    public void setContrasenia(String password) {
+        this.password = password;
     }
 
     public String getUsername() {
