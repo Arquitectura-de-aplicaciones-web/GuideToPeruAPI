@@ -17,14 +17,14 @@ public class CompraController {
     @Autowired
     private ICompraService cS;
     @PostMapping
-    @PreAuthorize("hasAuthority('CLIENTE')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void insert(@RequestBody CompraDTO dto){
         ModelMapper m = new ModelMapper();
         Compra c = m.map(dto, Compra.class);
         cS.insert(c);
     }
     @GetMapping
-    @PreAuthorize("hasAuthority('CLIENTE')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<CompraDTO> list(){
         return cS.list().stream().map(x->{
             ModelMapper m = new ModelMapper();
@@ -37,7 +37,7 @@ public class CompraController {
         cS.delete(id);
     }
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('CLIENTE')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public CompraDTO listId (@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
         CompraDTO dto = m.map(cS.listId(id),CompraDTO.class);
