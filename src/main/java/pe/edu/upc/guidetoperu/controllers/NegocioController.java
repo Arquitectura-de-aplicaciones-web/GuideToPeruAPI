@@ -8,6 +8,7 @@ import pe.edu.upc.guidetoperu.dtos.NegocioDTO;
 import pe.edu.upc.guidetoperu.entities.Negocio;
 import pe.edu.upc.guidetoperu.services.INegocioService;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -53,5 +54,14 @@ public class NegocioController {
         aS.insert(a);
 
     }
+
+    @PostMapping("/mejorcalificado")
+    public List<NegocioDTO> mejorcalificado (){
+        return aS.mejorcalificados().stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, NegocioDTO.class);
+        }).collect(Collectors.toList());
+    }
+
 
 }

@@ -6,6 +6,7 @@ import pe.edu.upc.guidetoperu.entities.Negocio;
 import pe.edu.upc.guidetoperu.repositories.INegocioRepository;
 import pe.edu.upc.guidetoperu.services.INegocioService;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -31,4 +32,9 @@ public class NegocioServiceImplement implements INegocioService {
     public Negocio listId(int id) {
         return aR.findById(id).orElse(new Negocio());
     }
+
+    @Override
+    public List<Negocio> mejorcalificados() {
+        return aR.findNegociosMejorCalificados();    }
+
 }

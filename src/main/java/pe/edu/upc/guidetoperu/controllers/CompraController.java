@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.guidetoperu.dtos.CompraDTO;
+import pe.edu.upc.guidetoperu.dtos.ProductoCompraDTO;
 import pe.edu.upc.guidetoperu.entities.Compra;
 import pe.edu.upc.guidetoperu.services.ICompraService;
 
@@ -51,4 +52,11 @@ public class CompraController {
         cS.insert(c);
 
     }
+
+    @GetMapping("/producto-count")
+    public List<ProductoCompraDTO> getBookCountByAuthor() {
+        List<ProductoCompraDTO> a = cS.reporte01();
+        return a;
+    }
+
 }
