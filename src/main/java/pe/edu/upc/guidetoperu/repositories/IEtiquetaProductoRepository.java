@@ -30,4 +30,7 @@ public interface IEtiquetaProductoRepository extends JpaRepository<EtiquetaProdu
     @Modifying
     @Query("DELETE FROM EtiquetaProducto cp WHERE cp.etiqueta.idEtiqueta = :idEtiqueta AND cp.producto.idproducto = :idproducto")
     void deleteByEtiquetaProducto(@Param("idEtiqueta") int idEtiqueta, @Param("idproducto") int idproducto);
+
+
+
 }
