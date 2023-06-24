@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.guidetoperu.dtos.DestinosDTO;
 import pe.edu.upc.guidetoperu.entities.Destinos;
 import pe.edu.upc.guidetoperu.services.IDestinosService;
+import pe.edu.upc.guidetoperu.dtos.depaDTO;
+import pe.edu.upc.guidetoperu.dtos.depaDTO;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -57,6 +59,11 @@ public class DestinosController {
             return m.map(x,DestinosDTO.class);
 
         }).collect(Collectors.toList());
+    }
+    @GetMapping("/departamento-count")
+    public List<depaDTO> getdepartarmentovisitados() {
+        List<depaDTO> depaDTOs = aS.reporte2();
+        return depaDTOs;
     }
 
 }

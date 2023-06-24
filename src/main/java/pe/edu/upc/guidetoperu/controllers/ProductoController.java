@@ -4,8 +4,10 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.guidetoperu.dtos.ComentariodecadaProductoDTO;
 import pe.edu.upc.guidetoperu.dtos.ProductoCompraDTO;
 import pe.edu.upc.guidetoperu.dtos.ProductoDTO;
+import pe.edu.upc.guidetoperu.dtos.depaDTO;
 import pe.edu.upc.guidetoperu.entities.Producto;
 import pe.edu.upc.guidetoperu.services.IProductoService;
 
@@ -51,5 +53,11 @@ public class ProductoController {
         pS.insert(a);
     }
 
+
+    @GetMapping("/producto-comentario")
+    public List<ComentariodecadaProductoDTO> getProductosConComentarios() {
+        List<ComentariodecadaProductoDTO> ComentariodecadaProductoDTOs = pS.reporte3();
+        return ComentariodecadaProductoDTOs;
+    }
 
 }

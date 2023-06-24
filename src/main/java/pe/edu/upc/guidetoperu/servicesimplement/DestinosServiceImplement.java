@@ -5,7 +5,8 @@ import org.springframework.stereotype.Service;
 import pe.edu.upc.guidetoperu.entities.Destinos;
 import pe.edu.upc.guidetoperu.repositories.IDestinosRepository;
 import pe.edu.upc.guidetoperu.services.IDestinosService;
-
+import pe.edu.upc.guidetoperu.dtos.depaDTO;
+import java.util.ArrayList;
 import java.util.List;
 @Service
 public class DestinosServiceImplement implements IDestinosService {
@@ -31,5 +32,25 @@ public class DestinosServiceImplement implements IDestinosService {
     @Override
     public List<Destinos> listar() {
         return irD.findAll();
+    }
+
+
+
+
+    @Override
+    public List<depaDTO> reporte2() {
+
+        List<String[]> departarmentovisitados = irD.getdepartarmentovisitados();
+        List<depaDTO> depaDTOs = new ArrayList<>();
+
+        for (String[] data : departarmentovisitados) {
+            depaDTO dto = new depaDTO();
+            dto.setDepartarmento(data[0]);
+            dto.setDepartarmentoCount(Integer.parseInt(data[1]));
+            depaDTOs.add(dto);
+        }
+
+        return depaDTOs;
+
     }
 }

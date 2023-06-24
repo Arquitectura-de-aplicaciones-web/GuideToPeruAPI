@@ -1,5 +1,6 @@
 package pe.edu.upc.guidetoperu.services;
 
+import pe.edu.upc.guidetoperu.dtos.ComentariodecadaProductoDTO;
 import pe.edu.upc.guidetoperu.entities.EtiquetaProducto;
 import pe.edu.upc.guidetoperu.entities.EtiquetaProducto;
 
@@ -15,4 +16,6 @@ public interface IEtiquetaProductoService {
     public void deleteByEtiqueta(int idEtiqueta);
     public void deleteByProducto(int idProducto);
     public void deleteByEtiquetaProducto(int idEtiqueta, int idProducto);
+
+
 }

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import pe.edu.upc.guidetoperu.entities.EtiquetaProducto;
 import pe.edu.upc.guidetoperu.repositories.IEtiquetaProductoRepository;
 import pe.edu.upc.guidetoperu.services.IEtiquetaProductoService;
-
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -57,4 +57,6 @@ public class EtiquetaProductoServiceImplement implements IEtiquetaProductoServic
     public void deleteByEtiquetaProducto(int idEtiqueta, int idproducto) {
         epR.deleteByEtiquetaProducto(idEtiqueta, idproducto);
     }
+
+
 }
