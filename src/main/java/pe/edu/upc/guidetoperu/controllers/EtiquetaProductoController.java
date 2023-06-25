@@ -24,7 +24,7 @@ public class EtiquetaProductoController {
         epS.insert(ep);
     }
     @GetMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('CLIENTE')")
     public List<EtiquetaProductoDTO> list(){
         return epS.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();

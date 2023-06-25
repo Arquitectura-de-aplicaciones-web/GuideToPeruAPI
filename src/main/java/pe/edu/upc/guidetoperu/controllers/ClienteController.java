@@ -27,7 +27,7 @@ public class ClienteController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('ADMIN') or hasAnyAuthority('NEGOCIO')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('NEGOCIO') or hasAuthority('CLIENTE')")
     public List<ClienteDTO> list() {
         return cS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
