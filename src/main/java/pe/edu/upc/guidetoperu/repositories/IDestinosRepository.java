@@ -19,5 +19,11 @@ public interface IDestinosRepository extends JpaRepository<Destinos,Integer> {
 
     List<String[]> getdepartarmentovisitados();
 
+
+    @Query(value = "SELECT distrito, CAST(COUNT(*) AS VARCHAR) FROM destinos " +
+            "GROUP BY distrito " +
+            "ORDER BY COUNT(*) DESC", nativeQuery = true)
+
+    List<String[]> getdistritosvisitados();
 }
 

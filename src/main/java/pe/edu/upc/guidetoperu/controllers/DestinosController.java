@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.guidetoperu.dtos.DestinosDTO;
+import pe.edu.upc.guidetoperu.dtos.distriDTO;
 import pe.edu.upc.guidetoperu.entities.Destinos;
 import pe.edu.upc.guidetoperu.services.IDestinosService;
 import pe.edu.upc.guidetoperu.dtos.depaDTO;
@@ -65,5 +66,12 @@ public class DestinosController {
         List<depaDTO> depaDTOs = aS.reporte2();
         return depaDTOs;
     }
+
+    @GetMapping("/distrito-count")
+    public List<distriDTO> getdistritosvisitados() {
+        List<distriDTO> distriDTOs = aS.reporte4();
+        return distriDTOs;
+    }
+
 
 }
