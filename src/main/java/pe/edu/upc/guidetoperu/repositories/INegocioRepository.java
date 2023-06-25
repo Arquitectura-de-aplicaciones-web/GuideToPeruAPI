@@ -13,8 +13,8 @@ import java.util.List;
 
 public interface INegocioRepository extends JpaRepository<Negocio,Integer> {
 
-    @Query("from Negocio v where v.calificacion = 5")
-    List<Negocio> findNegociosMejorCalificados();
+    @Query(value="Select v.name_negocio from negocios v where v.calificacion = 5", nativeQuery = true)
+    List<String[]> findNegociosMejorCalificados();
 
 
 

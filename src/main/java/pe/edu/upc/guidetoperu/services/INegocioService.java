@@ -1,8 +1,8 @@
 package pe.edu.upc.guidetoperu.services;
 
+import pe.edu.upc.guidetoperu.dtos.NegociocalificadosDTO;
 import pe.edu.upc.guidetoperu.entities.Negocio;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public interface INegocioService {
@@ -15,5 +15,5 @@ public interface INegocioService {
 
     public Negocio listId(int id);
 
-    List<Negocio> mejorcalificados();
+    List<NegociocalificadosDTO> mejorcalificados();
 }

@@ -2,11 +2,12 @@ package pe.edu.upc.guidetoperu.servicesimplement;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.edu.upc.guidetoperu.dtos.NegociocalificadosDTO;
 import pe.edu.upc.guidetoperu.entities.Negocio;
 import pe.edu.upc.guidetoperu.repositories.INegocioRepository;
 import pe.edu.upc.guidetoperu.services.INegocioService;
 
-import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -34,7 +35,21 @@ public class NegocioServiceImplement implements INegocioService {
     }
 
     @Override
-    public List<Negocio> mejorcalificados() {
-        return aR.findNegociosMejorCalificados();    }
+
+    public List<NegociocalificadosDTO> mejorcalificados() {
+
+        List<String[]> mejorcalificados = aR.findNegociosMejorCalificados();
+        List<NegociocalificadosDTO> calificado = new ArrayList<>();
+
+        for (String[] data : mejorcalificados) {
+            NegociocalificadosDTO dto = new NegociocalificadosDTO();
+            dto.setNameNegocio(data[0]);
+            calificado.add(dto);
+        }
+        return calificado;
+
+    }
+
+
 
 }

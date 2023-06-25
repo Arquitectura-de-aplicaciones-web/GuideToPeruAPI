@@ -55,7 +55,7 @@ public class CompraController {
 
     @GetMapping("/producto-count")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public List<ProductoCompraDTO> getBookCountByAuthor() {
+    public List<ProductoCompraDTO> reporte01() {
         List<ProductoCompraDTO> a = cS.reporte01();
         return a;
     }

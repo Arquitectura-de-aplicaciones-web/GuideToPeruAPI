@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.guidetoperu.dtos.NegocioDTO;
+import pe.edu.upc.guidetoperu.dtos.NegociocalificadosDTO;
 import pe.edu.upc.guidetoperu.entities.Negocio;
 import pe.edu.upc.guidetoperu.services.INegocioService;
 
@@ -56,12 +57,12 @@ public class NegocioController {
 
     }
 
-    @PostMapping("/mejorcalificado")
+    @GetMapping ("/mejorcalificado")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public List<NegocioDTO> mejorcalificado (){
+    public List<NegociocalificadosDTO> mejorcalificado (){
         return aS.mejorcalificados().stream().map(x -> {
             ModelMapper m = new ModelMapper();
-            return m.map(x, NegocioDTO.class);
+            return m.map(x, NegociocalificadosDTO.class);
         }).collect(Collectors.toList());
     }
 
