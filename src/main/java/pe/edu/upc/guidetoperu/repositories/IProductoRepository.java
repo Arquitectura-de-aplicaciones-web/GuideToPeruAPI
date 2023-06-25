@@ -18,4 +18,9 @@ public interface IProductoRepository extends JpaRepository<Producto, Integer> {
 
       List<String[]> getProductosConComentarios();
 
+
+    @Query(value="Select v.nombre from productos v where v.calificacion = 5", nativeQuery = true)
+    List<String[]> findProductosMejorCalificados();
+
+
 }

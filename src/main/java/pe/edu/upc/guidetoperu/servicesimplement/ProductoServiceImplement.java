@@ -3,6 +3,7 @@ package pe.edu.upc.guidetoperu.servicesimplement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.guidetoperu.dtos.ComentariodecadaProductoDTO;
+import pe.edu.upc.guidetoperu.dtos.ProductocalificadosDTO;
 import pe.edu.upc.guidetoperu.entities.Producto;
 import pe.edu.upc.guidetoperu.repositories.IProductoRepository;
 import pe.edu.upc.guidetoperu.services.IProductoService;
@@ -41,6 +42,24 @@ public class ProductoServiceImplement implements IProductoService {
         }
 
         return ComentariodecadaProductoDTOs;
-
     }
+
+    @Override
+    public List<ProductocalificadosDTO> reporte4() {
+
+        List<String[]> productoscalificado = pR.findProductosMejorCalificados();
+        List<ProductocalificadosDTO>  mascalificados = new ArrayList<>();
+
+        for (String[] data : productoscalificado) {
+            ProductocalificadosDTO dto = new ProductocalificadosDTO();
+            dto.setNameProducto(data[0]);
+            mascalificados.add(dto);
+        }
+
+        return mascalificados;
+    }
+
+
+
+
 }

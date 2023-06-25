@@ -4,10 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.guidetoperu.dtos.ComentariodecadaProductoDTO;
-import pe.edu.upc.guidetoperu.dtos.ProductoCompraDTO;
-import pe.edu.upc.guidetoperu.dtos.ProductoDTO;
-import pe.edu.upc.guidetoperu.dtos.depaDTO;
+import pe.edu.upc.guidetoperu.dtos.*;
 import pe.edu.upc.guidetoperu.entities.Producto;
 import pe.edu.upc.guidetoperu.services.IProductoService;
 
@@ -60,6 +57,16 @@ public class ProductoController {
     public List<ComentariodecadaProductoDTO> getProductosConComentarios() {
         List<ComentariodecadaProductoDTO> ComentariodecadaProductoDTOs = pS.reporte3();
         return ComentariodecadaProductoDTOs;
+    }
+
+
+    @GetMapping ("/productocalificado")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public List<ProductocalificadosDTO> reporte4 (){
+        return pS.reporte4().stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, ProductocalificadosDTO.class);
+        }).collect(Collectors.toList());
     }
 
 }

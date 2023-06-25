@@ -16,6 +16,9 @@ public interface ICompraRepository extends JpaRepository<Compra, Integer> {
             "group by a.nombre ORDER BY COUNT(a.nombre) DESC", nativeQuery = true)
     List<String[]> productosmascomprados();
 
-
+    @Query(value = "SELECT a.name_cliente,count(b.id_compra) from compras b \n" +
+            "join clientes a on  b.id_cliente = a.id \n" +
+            "group by a.name_cliente ORDER BY COUNT(a.name_cliente) DESC", nativeQuery = true)
+    List<String[]> clientescompras();
 
 }

@@ -1,6 +1,7 @@
 package pe.edu.upc.guidetoperu.services;
 
 import pe.edu.upc.guidetoperu.dtos.ComentariodecadaProductoDTO;
+import pe.edu.upc.guidetoperu.dtos.ProductocalificadosDTO;
 import pe.edu.upc.guidetoperu.dtos.depaDTO;
 import pe.edu.upc.guidetoperu.entities.Producto;
 
@@ -16,5 +17,7 @@ public interface IProductoService {
     public Producto listId(int idproducto);
 
     public List<ComentariodecadaProductoDTO> reporte3();
+
+    public List<ProductocalificadosDTO> reporte4();
 
 }

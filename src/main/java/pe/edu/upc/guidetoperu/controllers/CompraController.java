@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.guidetoperu.dtos.ClienteCompraDTO;
 import pe.edu.upc.guidetoperu.dtos.CompraDTO;
 import pe.edu.upc.guidetoperu.dtos.ProductoCompraDTO;
 import pe.edu.upc.guidetoperu.entities.Compra;
@@ -58,6 +59,14 @@ public class CompraController {
     public List<ProductoCompraDTO> reporte01() {
         List<ProductoCompraDTO> a = cS.reporte01();
         return a;
+    }
+
+
+    @GetMapping("/cliente-count")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public List<ClienteCompraDTO> reporte02() {
+        List<ClienteCompraDTO> b = cS.reporte02();
+        return b;
     }
 
 }
