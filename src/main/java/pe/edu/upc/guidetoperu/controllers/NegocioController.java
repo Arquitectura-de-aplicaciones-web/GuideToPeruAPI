@@ -25,8 +25,9 @@ public class NegocioController {
         aS.insert(a);
 
     }
-    @GetMapping
 
+    @PreAuthorize("hasAuthority('ADMIN') or hasAnyAuthority('CLIENTE') or hasAnyAuthority('NEGOCIO')")
+    @GetMapping
     public List<NegocioDTO> list() {
         return aS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
@@ -56,6 +57,7 @@ public class NegocioController {
     }
 
     @PostMapping("/mejorcalificado")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<NegocioDTO> mejorcalificado (){
         return aS.mejorcalificados().stream().map(x -> {
             ModelMapper m = new ModelMapper();

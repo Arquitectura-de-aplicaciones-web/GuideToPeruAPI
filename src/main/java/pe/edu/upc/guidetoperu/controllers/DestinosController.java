@@ -53,6 +53,7 @@ public class DestinosController {
         return dto;
     }
 
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('CLIENTE') or hasAuthority('NEGOCIO')")
     @GetMapping
     public List<DestinosDTO> listar() {
         return aS.listar().stream().map(x->{
@@ -61,12 +62,15 @@ public class DestinosController {
 
         }).collect(Collectors.toList());
     }
+
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/departamento-count")
     public List<depaDTO> getdepartarmentovisitados() {
         List<depaDTO> depaDTOs = aS.reporte2();
         return depaDTOs;
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/distrito-count")
     public List<distriDTO> getdistritosvisitados() {
         List<distriDTO> distriDTOs = aS.reporte4();

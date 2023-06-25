@@ -20,13 +20,14 @@ public class ProductoController {
     @Autowired
     private IProductoService pS;
     @PostMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAnyAuthority('NEGOCIO')")
     public void insert(@RequestBody ProductoDTO dto){
         ModelMapper m=new ModelMapper();
         Producto a =m.map(dto, Producto.class);
         pS.insert(a);
     }
     @GetMapping
+    @PreAuthorize("hasAuthority('ADMIN') or hasAnyAuthority('CLIENTE') or hasAnyAuthority('NEGOCIO')")
     public List<ProductoDTO> list(){
         return pS.list().stream().map(x->{
             ModelMapper m = new ModelMapper();
@@ -34,19 +35,19 @@ public class ProductoController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAnyAuthority('NEGOCIO')")
     public void delete (@PathVariable("id")Integer id){
         pS.delete(id);
     }
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAnyAuthority('NEGOCIO')")
     public ProductoDTO listId (@PathVariable("id")Integer id){
         ModelMapper m=new ModelMapper();
         ProductoDTO dto=m.map(pS.listId(id),ProductoDTO.class);
         return dto;
     }
     @PutMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAnyAuthority('NEGOCIO')")
     public void goUpdate(@RequestBody ProductoDTO dto ){
         ModelMapper m=new ModelMapper();
         Producto a=m.map(dto, Producto.class);
@@ -55,6 +56,7 @@ public class ProductoController {
 
 
     @GetMapping("/producto-comentario")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<ComentariodecadaProductoDTO> getProductosConComentarios() {
         List<ComentariodecadaProductoDTO> ComentariodecadaProductoDTOs = pS.reporte3();
         return ComentariodecadaProductoDTOs;

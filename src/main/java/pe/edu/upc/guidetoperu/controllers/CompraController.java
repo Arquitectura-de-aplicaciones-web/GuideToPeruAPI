@@ -18,14 +18,14 @@ public class CompraController {
     @Autowired
     private ICompraService cS;
     @PostMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAnyAuthority('CLIENTE')")
     public void insert(@RequestBody CompraDTO dto){
         ModelMapper m = new ModelMapper();
         Compra c = m.map(dto, Compra.class);
         cS.insert(c);
     }
     @GetMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAnyAuthority('CLIENTE') or hasAnyAuthority('NEGOCIO')")
     public List<CompraDTO> list(){
         return cS.list().stream().map(x->{
             ModelMapper m = new ModelMapper();
@@ -54,6 +54,7 @@ public class CompraController {
     }
 
     @GetMapping("/producto-count")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<ProductoCompraDTO> getBookCountByAuthor() {
         List<ProductoCompraDTO> a = cS.reporte01();
         return a;
